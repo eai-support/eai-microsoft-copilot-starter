@@ -190,7 +190,7 @@ export function evaluateRuntimeReadiness(
 
   return {
     ok: checks.every((check) => check.ok),
-    service: env.NEXT_PUBLIC_APP_NAME || 'eai-app-template',
+    service: env.NEXT_PUBLIC_APP_NAME || 'eai-microsoft-copilot-starter',
     checks,
     failureCategories,
   };

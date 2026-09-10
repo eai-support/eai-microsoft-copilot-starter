@@ -18,7 +18,8 @@ function probeFailure(
   return Response.json(
     {
       ok: false,
-      service: process.env.NEXT_PUBLIC_APP_NAME || 'eai-app-template',
+      service:
+        process.env.NEXT_PUBLIC_APP_NAME || 'eai-microsoft-copilot-starter',
       checks: [{ name: 'tenantinfra-probe', ok: false, category }],
       failureCategories: [category],
     },

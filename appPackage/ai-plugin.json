@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "eaiCases",
+  "name_for_human": "EAI Customer Cases${{APP_NAME_SUFFIX}}",
+  "description_for_human": "Work with tenant-governed customer cases in EAI.",
+  "description_for_model": "List, read, create and version-update customer cases through strict EAI PublicAPI V4 operations.",
+  "contact_email": "support@enterpriseai.group",
+  "legal_info_url": "https://enterpriseai.group/terms",
+  "privacy_policy_url": "https://enterpriseai.group/privacy",
+  "functions": [
+    {
+      "name": "listMyCases",
+      "description": "List customer cases the signed-in user is permitted to see."
+    },
+    {
+      "name": "getCase",
+      "description": "Read one permitted customer case and its current version."
+    },
+    {
+      "name": "createCase",
+      "description": "Create a tenant-owned customer case.",
+      "capabilities": {
+        "confirmation": {
+          "type": "AdaptiveCard",
+          "title": "Create customer case",
+          "body": "Create this customer case in the EAI Platform?"
+        }
+      }
+    },
+    {
+      "name": "updateCase",
+      "description": "Update a customer case using its current optimistic-lock version.",
+      "capabilities": {
+        "confirmation": {
+          "type": "AdaptiveCard",
+          "title": "Update customer case",
+          "body": "Apply this change to the customer case in the EAI Platform?"
+        }
+      }
+    }
+  ],
+  "runtimes": [
+    {
+      "type": "OpenApi",
+      "auth": {
+        "type": "OAuthPluginVault",
+        "reference_id": "${{OAUTH2AUTHCODE_CONFIGURATION_ID}}"
+      },
+      "spec": {
+        "url": "apiSpecificationFile/eai-cases.openapi.yml",
+        "progress_style": "ShowUsageWithInputAndOutput"
+      },
+      "run_for_functions": [
+        "listMyCases",
+        "getCase",
+        "createCase",
+        "updateCase"
+      ]
+    }
+  ],
+  "capabilities": {
+    "conversation_starters": [
+      { "text": "Show my current customer cases" },
+      { "text": "Create a customer case" }
+    ]
+  }
+}

@@ -1,0 +1,1247 @@
+{
+  "schemaVersion": 1,
+  "template": {
+    "repo": "https://github.com/eai-support/eai-app-template.git",
+    "displaySource": "eai-support/eai-app-template",
+    "sourceCommit": "049e5852903841448eea99873cfac48d5682199a",
+    "initializedAt": "2026-09-10T21:48:40Z",
+    "initializationMode": "github-template"
+  },
+  "gofer": {
+    "bundle": {
+      "commit": "03febe08963319a6beb2d172e880d9bd489a3404",
+      "describe": "v3.12.7"
+    },
+    "managedFiles": {
+      ".agents/skills/eai-update/SKILL.md": {
+        "sha256": "5a6104501d4ab4179d161a79034619cd0d40b042ef517b801520303765189b7d",
+        "source": "bundled"
+      },
+      ".agents/skills/eai/SKILL.md": {
+        "sha256": "39224f11e50c93b4017158447eb22f77af4827b22e48e78fe94b42c059534ecb",
+        "source": "bundled"
+      },
+      ".agents/skills/gofer-documentation/SKILL.md": {
+        "sha256": "3fe1e8c4c14745a9c99d0d245f2cc578aca0ae624a07aca14583afce710edfa3",
+        "source": "bundled"
+      },
+      ".claude/agents/assumption-tracker.md": {
+        "sha256": "bd345269eb3ac11fda9c3d314344f65072e429997542a3525bb89c96df5b4593",
+        "source": "bundled"
+      },
+      ".claude/agents/business-metrics-analyzer.md": {
+        "sha256": "e328e964e134b7a48f908360147ac08e2608991cec528d321785e1961b88cdc1",
+        "source": "bundled"
+      },
+      ".claude/agents/business-problem-validator.md": {
+        "sha256": "423d884387d7dc45caa99b3e49d4439bfaa792bbf3ed94ed5eb8ceb802a4d31d",
+        "source": "bundled"
+      },
+      ".claude/agents/codebase-analyzer.md": {
+        "sha256": "f58a79025f14e2f0ac8500a0d27f3061364d50305cdf6daa880380d6e0417df7",
+        "source": "bundled"
+      },
+      ".claude/agents/codebase-locator.md": {
+        "sha256": "369c49d1c9143c4cc68f8b2655119fc0c567f50806457bb18be0d944a4de6513",
+        "source": "bundled"
+      },
+      ".claude/agents/codebase-pattern-finder.md": {
+        "sha256": "67b5b3bc3608921a4617266e6416b02f489fbed30da5d883c77e638cb3bf177a",
+        "source": "bundled"
+      },
+      ".claude/agents/comms-writer.md": {
+        "sha256": "00178aedba805c4a933c458e7790d1536485d2d7b81ad0f1ee69e3be1ed4a7a6",
+        "source": "bundled"
+      },
+      ".claude/agents/engineer-review.md": {
+        "sha256": "444d27ee4480078231c5d50d3aeaadf4db329ca17e12ac99bf2f9c0623ec7b36",
+        "source": "bundled"
+      },
+      ".claude/agents/implement-bug-triangulator.md": {
+        "sha256": "b260f631f464e94f03c828dcf00ad8961b2da9d6c2f28496e8bb11f0384a7e22",
+        "source": "bundled"
+      },
+      ".claude/agents/implement-code-review-council.md": {
+        "sha256": "c77b74968e3f7dad93cf4bf48630fdabc8a2a9b399f30c956052c80c4df68113",
+        "source": "bundled"
+      },
+      ".claude/agents/implement-doc-writer.md": {
+        "sha256": "9025988b0699f01e28d08b156d38ab02abca64127a40e38d43377bc65b822360",
+        "source": "bundled"
+      },
+      ".claude/agents/implement-error-hardener.md": {
+        "sha256": "1e9a9e0f289e933e40cae77bd68740e56136891f4d127ae2a7b6c7b0cf38b418",
+        "source": "bundled"
+      },
+      ".claude/agents/implement-performance-explorer.md": {
+        "sha256": "61741c6fa92ef983e8d7a19fbefd252b41392d3f6ba696b0bebaf26ebc9d2a9c",
+        "source": "bundled"
+      },
+      ".claude/agents/implement-test-diversifier.md": {
+        "sha256": "e0ff889b21c556443be36909eae92262737b8837400cd2f20d9df9fac5ec118e",
+        "source": "bundled"
+      },
+      ".claude/agents/implement-variant-generator.md": {
+        "sha256": "1af9aaf3d3dbb01740d37670d8d9c93b5803f723a8c2f9428b9e0ea71e89f8a5",
+        "source": "bundled"
+      },
+      ".claude/agents/multi-perspective-judge.md": {
+        "sha256": "36fbd2c10599499b5194b1a47600731112251f3abad3afa72e47b1f6e3933472",
+        "source": "bundled"
+      },
+      ".claude/agents/plan-api-comparator.md": {
+        "sha256": "04caad3209e0266782962f9c15fc9f26f241adff1628fddeb5603fa5182c7ee4",
+        "source": "bundled"
+      },
+      ".claude/agents/plan-architecture-diverger.md": {
+        "sha256": "8bad4a8551894201356deffe309d1376cfd7779c3c96e98ef5ef76110a83cd2f",
+        "source": "bundled"
+      },
+      ".claude/agents/plan-data-model-stress-tester.md": {
+        "sha256": "e43335a7b53ead404b70260a29b4b4bffc8f788fbc65025655ed5dd857541fd2",
+        "source": "bundled"
+      },
+      ".claude/agents/plan-migration-path-finder.md": {
+        "sha256": "d1c1d437037fb68bfdf73462a66ef7bec6029a23c91eb80a778f9f2124a27cac",
+        "source": "bundled"
+      },
+      ".claude/agents/plan-refactor-rewrite-advisor.md": {
+        "sha256": "19aab98fe0f69747e6a6251fd280569a776b6e290d7545ccb8b8e9475f88082f",
+        "source": "bundled"
+      },
+      ".claude/agents/research-dependency-evaluator.md": {
+        "sha256": "dcfdd8cad828c3187b9b0ee742647864fc25a366053af267e6dfb46491910df6",
+        "source": "bundled"
+      },
+      ".claude/agents/research-horizon-scanner.md": {
+        "sha256": "5da502c17470b591a9a76e866a73df69ff86fbb99689f9d8fbe1a88acb0289cc",
+        "source": "bundled"
+      },
+      ".claude/agents/research-market-scanner.md": {
+        "sha256": "8868e79cef6b0800031bf3234c2ddc8aec3ce9035cf563d9ce126d5ac22e14fd",
+        "source": "bundled"
+      },
+      ".claude/agents/research-perspective-multiplier.md": {
+        "sha256": "f6b44a801d7e0ec4c595116eadc3e85206cea87b5a40e4e9f13879e542fae2c7",
+        "source": "bundled"
+      },
+      ".claude/agents/scope-creep-detector.md": {
+        "sha256": "fe3e1ff3237a2d65c88ee8355f710014c9fc8d002528852a616ae9e9fffebb49",
+        "source": "bundled"
+      },
+      ".claude/agents/specify-ambiguity-detector.md": {
+        "sha256": "639bffab0fbcbbb906623e6f03037c16d7cac606f8a54fa6dea0e1b4e6a47afb",
+        "source": "bundled"
+      },
+      ".claude/agents/specify-journey-stress-tester.md": {
+        "sha256": "e7460aa37f53fbb16fbbd0beef8a89bd06679f1032a93e3fc14575261fa7c00b",
+        "source": "bundled"
+      },
+      ".claude/agents/tasks-cross-cutting-scanner.md": {
+        "sha256": "340a30458b774eb6e04446ca48b5fdc526add20e24721077e5e084f6230839bf",
+        "source": "bundled"
+      },
+      ".claude/agents/tasks-rollback-planner.md": {
+        "sha256": "632f528bfd7248a36676b72e197788d46bd926bd04907d5008946221e174d6df",
+        "source": "bundled"
+      },
+      ".claude/agents/validate-security-red-team.md": {
+        "sha256": "867fbed5a50cb1d22de8dfc701a19b1657f7c51665ada9a4e71b74a26a24d8c7",
+        "source": "bundled"
+      },
+      ".claude/agents/validation-correctness.md": {
+        "sha256": "784b8e0aebfa3d4eb1aae6785efc51db84e780d08c8fdf43b51401de6745959c",
+        "source": "bundled"
+      },
+      ".claude/agents/validation-integration.md": {
+        "sha256": "eaba7207fe403470d12e67ef91f5a4c1a18b07c0f6aa7b211bd6103354afb4a4",
+        "source": "bundled"
+      },
+      ".claude/agents/validation-performance.md": {
+        "sha256": "1bd24d3417abd98f7dc8086b0992f1105993eb2eb2f68f71b102feb34b0fccbe",
+        "source": "bundled"
+      },
+      ".claude/agents/validation-security.md": {
+        "sha256": "5a26c550610b2adf0621b80910103cc48a2197bde60db7df434364c8539326dd",
+        "source": "bundled"
+      },
+      ".claude/agents/validation-standards.md": {
+        "sha256": "88575dd00db0252e1e20bbc8f7d2ee126e293379e12ea2d458421019935892d5",
+        "source": "bundled"
+      },
+      ".claude/agents/validation-test-quality.md": {
+        "sha256": "bc053a38f9a70970a174208f0627527b9d1dfefed0515a4b145628e3d022a3e0",
+        "source": "bundled"
+      },
+      ".claude/agents/visual-bounded-context-writer.md": {
+        "sha256": "e535a23884561176e0d1b54a90c680900a04c54c2d06030d00b03362f85044da",
+        "source": "bundled"
+      },
+      ".claude/agents/visual-c4-writer.md": {
+        "sha256": "ccfa078f827c97aa766e2a60336721ae0d81b144f5ba92d4faed769144eca226",
+        "source": "bundled"
+      },
+      ".claude/agents/visual-erd-writer.md": {
+        "sha256": "3ad1e1f0ae7cbd82015f2ae4c7cfcd0503ce8bc7e0579fe6721c455a6e5ff9c8",
+        "source": "bundled"
+      },
+      ".claude/agents/visual-heatmap-writer.md": {
+        "sha256": "c56cd8fde83d164f7a68bab825761217b1b0272532ee3789cd9d7e956f726c29",
+        "source": "bundled"
+      },
+      ".claude/agents/visual-risk-writer.md": {
+        "sha256": "31881ac059463728821854c39fe2b29bfaca7ca81b39bdce7788d7b8dec67ba6",
+        "source": "bundled"
+      },
+      ".claude/commands/eai-update.md": {
+        "sha256": "830863b95eb66ce23dae414ea63b8270de78ad24ce56a78ccb762a250840514b",
+        "source": "bundled"
+      },
+      ".claude/commands/eai.md": {
+        "sha256": "2129a5f823f01fb0bfabacb1f01439dca5d1f9e9980e194cb182b4c8a6084404",
+        "source": "bundled"
+      },
+      ".gemini/agents/assumption-tracker.md": {
+        "sha256": "eab73b9f2de91f001e3ea37361402124ebdb39e7f1ef9564f65b1daa97c07abf",
+        "source": "bundled"
+      },
+      ".gemini/agents/business-metrics-analyzer.md": {
+        "sha256": "6abcb001f9cd410422cae82d94766370da457a48409d2ac0e7c8d708a0d8a8fb",
+        "source": "bundled"
+      },
+      ".gemini/agents/business-problem-validator.md": {
+        "sha256": "e08ab7b54ecbd044fbdb65880ed93f111b24ed6d37eefdb3e3b121a99d335eca",
+        "source": "bundled"
+      },
+      ".gemini/agents/codebase-analyzer.md": {
+        "sha256": "a2929e33778f46d1cc2c07affa6ded7dbd3e18907844e21e057c71924857e682",
+        "source": "bundled"
+      },
+      ".gemini/agents/codebase-locator.md": {
+        "sha256": "1ce684227b3e6127355682765233690af7cbae0bbfb225a2e97f9562e25a7dea",
+        "source": "bundled"
+      },
+      ".gemini/agents/codebase-pattern-finder.md": {
+        "sha256": "77ed0fb2284a525ee5df7d97db4e7b104b223c0fd5555048d2de2698ecf34a2b",
+        "source": "bundled"
+      },
+      ".gemini/agents/comms-writer.md": {
+        "sha256": "095c03137ddd1581ecd5530ab1d9c5f6c0a42efc6a5487e9b5c509292abd2d9b",
+        "source": "bundled"
+      },
+      ".gemini/agents/engineer-review.md": {
+        "sha256": "a62f739a84dbf47d19503d5dfe968ef09948bf0806ffceeae36ca095a8fed7e6",
+        "source": "bundled"
+      },
+      ".gemini/agents/implement-bug-triangulator.md": {
+        "sha256": "ed839d7c1935b2ca06f2488e8144abfe23e72dbc21694f53801c650749985eaa",
+        "source": "bundled"
+      },
+      ".gemini/agents/implement-code-review-council.md": {
+        "sha256": "9019cc8c17eae5bc0c6445ecc02450533d4ed2dd9bce118b08dd64548faf13ed",
+        "source": "bundled"
+      },
+      ".gemini/agents/implement-doc-writer.md": {
+        "sha256": "9c28a5f6f3ba81c2b4272d2397a1411dd083061fc3761d0c3a703884a001c679",
+        "source": "bundled"
+      },
+      ".gemini/agents/implement-error-hardener.md": {
+        "sha256": "43e25e3aa26bba024b0648b7e42e968c97400a72fe7142a1079bd4395fa96e63",
+        "source": "bundled"
+      },
+      ".gemini/agents/implement-performance-explorer.md": {
+        "sha256": "3e40278a061628a2591b926aee21a6028f3ed67d5a05677507ea83187bfb2383",
+        "source": "bundled"
+      },
+      ".gemini/agents/implement-test-diversifier.md": {
+        "sha256": "dfc5c9aaefe65428e2aff9fdee74c600ae3da240d18d96ecca6adc6da8ae1e1e",
+        "source": "bundled"
+      },
+      ".gemini/agents/implement-variant-generator.md": {
+        "sha256": "e262d77566ddcdfa771d8cf8fdfc04907a8a36efae8cb4ba1fce00985e228031",
+        "source": "bundled"
+      },
+      ".gemini/agents/multi-perspective-judge.md": {
+        "sha256": "823f68abdf0ec6268523bab861057e87d5df765b0c1c60ecd59d7896d10a804d",
+        "source": "bundled"
+      },
+      ".gemini/agents/plan-api-comparator.md": {
+        "sha256": "94c8695bd87f96bc3d9b7ec16ce6b905f420de91c0cd23e5644fa42210a4b524",
+        "source": "bundled"
+      },
+      ".gemini/agents/plan-architecture-diverger.md": {
+        "sha256": "1afa6f3c3b74e13fd824601408cc4e5d3276b2a57eb84b53bb657a27cd1d6914",
+        "source": "bundled"
+      },
+      ".gemini/agents/plan-data-model-stress-tester.md": {
+        "sha256": "61b920f1ca82194b85a4665d34872bb2ef570581a9deeab2d1428e216921c18b",
+        "source": "bundled"
+      },
+      ".gemini/agents/plan-migration-path-finder.md": {
+        "sha256": "2fc89d6b062cb360288fab1dcf208d9f16893e2e464645b27055fdf1118f49e0",
+        "source": "bundled"
+      },
+      ".gemini/agents/plan-refactor-rewrite-advisor.md": {
+        "sha256": "076b479aa50b5bf3fe942aa63aa0525d2224de804babe7459016d663988d46d2",
+        "source": "bundled"
+      },
+      ".gemini/agents/research-dependency-evaluator.md": {
+        "sha256": "54f51ede336eef7ed1899a9ae96cf75d0722d727cd0eef4df9a1278a60deb877",
+        "source": "bundled"
+      },
+      ".gemini/agents/research-horizon-scanner.md": {
+        "sha256": "f59c1f54824b56b371107e2867c6ce91312ed46e35cc6ff38d3ff881567811f8",
+        "source": "bundled"
+      },
+      ".gemini/agents/research-market-scanner.md": {
+        "sha256": "2d9c4a7a8326c91a83b643725b17d2347203315cf241e8bcdae370fceb773a72",
+        "source": "bundled"
+      },
+      ".gemini/agents/research-perspective-multiplier.md": {
+        "sha256": "3cec71db3be8b84547420ae57f3ef529df12cf585935aa82d76a7087546c0735",
+        "source": "bundled"
+      },
+      ".gemini/agents/scope-creep-detector.md": {
+        "sha256": "db8a4cd6fd3b2e8de054a76b676ddfab584638ba68656f412356f0da0a3442cc",
+        "source": "bundled"
+      },
+      ".gemini/agents/specify-ambiguity-detector.md": {
+        "sha256": "a859019843134abe83ab516623920f6eb206b7aa449d839fa35277648abeda8f",
+        "source": "bundled"
+      },
+      ".gemini/agents/specify-journey-stress-tester.md": {
+        "sha256": "b9512c25df603abb02b51c4b4dd1252c4fbc879cffe69aaa5ab248bcd082ab75",
+        "source": "bundled"
+      },
+      ".gemini/agents/tasks-cross-cutting-scanner.md": {
+        "sha256": "a0de951b4aaf547c96941fe390f30f610dc2b82b0aa38280c057f08ca0aa23e5",
+        "source": "bundled"
+      },
+      ".gemini/agents/tasks-rollback-planner.md": {
+        "sha256": "e4b2d17f0b3dde585d23ac28d6cb2676ef4bcc49d919a490821d2bcc67f67e20",
+        "source": "bundled"
+      },
+      ".gemini/agents/validate-security-red-team.md": {
+        "sha256": "70427b13c4f7c24a24b8fc6a9a6294f7c7e2d7cefdbcde2629bd83dc872b3712",
+        "source": "bundled"
+      },
+      ".gemini/agents/validation-correctness.md": {
+        "sha256": "7531dbc58751a4a3d2424527774873350236e34e9a5ed05f68148444b1d88d82",
+        "source": "bundled"
+      },
+      ".gemini/agents/validation-integration.md": {
+        "sha256": "4c9604e73d56b3920486055f338fb2bf0e5b49c3b848e0dd16c03d8d00f0df46",
+        "source": "bundled"
+      },
+      ".gemini/agents/validation-performance.md": {
+        "sha256": "b77a21951b5025561b3d53d4483d52969f699c09181ef095a8af8dc9e2abe20b",
+        "source": "bundled"
+      },
+      ".gemini/agents/validation-security.md": {
+        "sha256": "f483251d8ed9d70fb42d6aa0ddc0095327e4399402cc7f77934d6e80e10f2deb",
+        "source": "bundled"
+      },
+      ".gemini/agents/validation-standards.md": {
+        "sha256": "5ddc6a19ccd898a63e0940545e1f97219da4e7d8388638d44401a83150bf72a2",
+        "source": "bundled"
+      },
+      ".gemini/agents/validation-test-quality.md": {
+        "sha256": "a031bef4c81dd26708a0aa12ebc4604b302dfeed343ed4653c975054435fd4e1",
+        "source": "bundled"
+      },
+      ".gemini/agents/visual-bounded-context-writer.md": {
+        "sha256": "c24ff086e6d8425be8f835b1e31673fb22c3221851b7459492a3e8e28f8a26e5",
+        "source": "bundled"
+      },
+      ".gemini/agents/visual-c4-writer.md": {
+        "sha256": "1c23e46a4831a859df79cfa84008c4bf7efdf24a98ce34183e084f890c4e0190",
+        "source": "bundled"
+      },
+      ".gemini/agents/visual-erd-writer.md": {
+        "sha256": "8e96fa844cd2704acfe4961abe9fc02f4e6a73a76482d62815ec7a4af8ec1e9e",
+        "source": "bundled"
+      },
+      ".gemini/agents/visual-heatmap-writer.md": {
+        "sha256": "ca86e8687e87fbfe68c32ba007c55045dae563ccdcbc57794edd0a84f6cb58c2",
+        "source": "bundled"
+      },
+      ".gemini/agents/visual-risk-writer.md": {
+        "sha256": "aa863482eab6dc408b7f19bdce13fb5aa3ecc7ce00a1299b4b95ac38110c83ad",
+        "source": "bundled"
+      },
+      ".gemini/commands/gofer/.gitkeep": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "source": "bundled"
+      },
+      ".gemini/commands/gofer/eai-update.md": {
+        "sha256": "b05d854af74ca7b6cb37cf1099324acc09d8888dcb3368871eb24cbc6ab6ad2d",
+        "source": "bundled"
+      },
+      ".gemini/commands/gofer/eai-update.toml": {
+        "sha256": "db0350d404f3d9858bd5f920dff5b75305870c75f534a421fae2e605b4c936d4",
+        "source": "bundled"
+      },
+      ".gemini/commands/gofer/eai.md": {
+        "sha256": "b483b4ddb8b7c245666ba9d080167bcaad1cd3733e2a24abf6d7efe6a6f9b8a8",
+        "source": "bundled"
+      },
+      ".gemini/commands/gofer/eai.toml": {
+        "sha256": "2446ca8e1079c4aefb2f161af07bb5a9c463320e51811f754b49f196d229fcad",
+        "source": "bundled"
+      },
+      ".gemini/commands/gofer/manifest.json": {
+        "sha256": "0782dac73ea3a3adebb5fbc74ba6a9c9f7adc60b05216f9d408d69de351a3807",
+        "source": "bundled"
+      },
+      ".gemini/extension.json": {
+        "sha256": "719c238437b86e873815982e2f5ffb553f413c15cc83c64ec1468c0625461dce",
+        "source": "bundled"
+      },
+      ".github/copilot-instructions.md": {
+        "sha256": "6396eb99b87dd8644181a0fc8d80f8aa092ceee59dd1d44d668dbe516f27fbf5",
+        "source": "generated"
+      },
+      ".github/instructions/gofer-cost.instructions.md": {
+        "sha256": "0af9c5bbc0bec915171cdda1c27147fcd834f7c988812fc2fdb45810d0c86184",
+        "source": "bundled"
+      },
+      ".github/instructions/language-server.instructions.md": {
+        "sha256": "2a378b60f4b458bd69cf6f641ab9c6741fa9cb271bb04c6b8f9edca347a069e7",
+        "source": "bundled"
+      },
+      ".github/instructions/typescript.instructions.md": {
+        "sha256": "3fef96d176251ca36f2e966190b01d1512f05ae4da43315dea086ae01c60e682",
+        "source": "bundled"
+      },
+      ".github/instructions/vscode-extension.instructions.md": {
+        "sha256": "ae5f165dc951d76cc29d86ac02f71586729421584868591ab6cd2da2f8e7166e",
+        "source": "bundled"
+      },
+      ".github/prompts/eai-update.prompt.md": {
+        "sha256": "abc1c132efd09e09eedbd4315bda97931fcdc4836d7a7ce9483efabb174b491b",
+        "source": "bundled"
+      },
+      ".github/prompts/eai.prompt.md": {
+        "sha256": "bd4a87af4fbc7075511718fc5aa570731187fbf81bccc958f8d83a49d5c2b0ec",
+        "source": "bundled"
+      },
+      ".github/skills/0-gofer-start/SKILL.md": {
+        "sha256": "2972648c0d3152ff2ae1ab393ea0abec99e82f20e4eebfe9b0c94cc430514b30",
+        "source": "generated"
+      },
+      ".github/skills/0a-problem-validation/SKILL.md": {
+        "sha256": "6cc78a52d2fb5e3471766cb282123db9ddd7922e08358a9428148b57ff5f0504",
+        "source": "generated"
+      },
+      ".github/skills/1-gofer-research/SKILL.md": {
+        "sha256": "194fd22f6b1841f6abe07cb3b5cbefeac37d8eae0e4e3853b743a13221996e3f",
+        "source": "generated"
+      },
+      ".github/skills/10-gofer-cloud/SKILL.md": {
+        "sha256": "8107957fe8478b3bb4924c4cdc21963791fc840b809b4d82da5ddd9569747d51",
+        "source": "generated"
+      },
+      ".github/skills/2-gofer-specify/SKILL.md": {
+        "sha256": "10767f75781e33525072979ffffef6890ab1b10be67d318ab845de934f722522",
+        "source": "generated"
+      },
+      ".github/skills/3-gofer-plan/SKILL.md": {
+        "sha256": "13a4b419baad9f850a0508bec20d60fdaf8f3b838f0f38cfcb8f32148ea55ea6",
+        "source": "generated"
+      },
+      ".github/skills/4-gofer-tasks/SKILL.md": {
+        "sha256": "3b3fc56a2292872367edc9e0a986531b414a155739f8e4cf37b65af9143c2b01",
+        "source": "generated"
+      },
+      ".github/skills/5-gofer-implement/SKILL.md": {
+        "sha256": "721668a3352ce3de734a5e6a9e508801b62c6da0d320b7a22b9f6886e3eb003f",
+        "source": "generated"
+      },
+      ".github/skills/6-gofer-validate/SKILL.md": {
+        "sha256": "dac19ec4bad2e632351172a19aa95888d5e56f0aee19dbb357cc41e657526ffa",
+        "source": "generated"
+      },
+      ".github/skills/7-gofer-save/SKILL.md": {
+        "sha256": "c9673bb34186d09cfd624a1395c6fcb52c71c3eda516a4c6ab79f33981516865",
+        "source": "generated"
+      },
+      ".github/skills/7a-stakeholder-comms/SKILL.md": {
+        "sha256": "ff10de00c819d365ce49d82dda8e15ff4eedffb139240a02c6e54aab8107a313",
+        "source": "generated"
+      },
+      ".github/skills/8-gofer-branding/SKILL.md": {
+        "sha256": "6e31365529099c496982c60c8d0398aea09f3e322a75aca9f06fb4a6a1b92678",
+        "source": "generated"
+      },
+      ".github/skills/9-gofer-tests/SKILL.md": {
+        "sha256": "2521d324bb804653139c08b8f5ac28443d7c88ab0a1d92fc9945c095bca3f9c7",
+        "source": "generated"
+      },
+      ".github/skills/gofer-bootstrap-workspace/SKILL.md": {
+        "sha256": "2f9648b9793acca41b96bb4b0b8605c0bfd034c64a613d8620d51922d3936b47",
+        "source": "generated"
+      },
+      ".github/skills/gofer-check-workspace/SKILL.md": {
+        "sha256": "12e91fcdc963a7e1192cf13c51034c6f57dc659a7995c9124548a374405aaadb",
+        "source": "generated"
+      },
+      ".github/skills/gofer-constitution/SKILL.md": {
+        "sha256": "f4cc4b04bf6eba06735c64c6413192a94d35bab78ac9b7a3d23236b8cd4454b9",
+        "source": "generated"
+      },
+      ".github/skills/gofer-diagnose/SKILL.md": {
+        "sha256": "a80ef979ff58ab4ecd33bdd0d9190ccd47506dd4e0901fbeec3b392dc6f3ebec",
+        "source": "generated"
+      },
+      ".github/skills/gofer-eai-first-run/SKILL.md": {
+        "sha256": "97c0bc6f6df89f1c222fef1b68556839960104df7912732b5f31f1ace93ad353",
+        "source": "generated"
+      },
+      ".github/skills/gofer-hydrate/SKILL.md": {
+        "sha256": "d42f8d5d6b41a5e745ea93cf87966dc7d9cef97620416f354f2a68dccfcd80a9",
+        "source": "generated"
+      },
+      ".github/skills/gofer-personality/SKILL.md": {
+        "sha256": "8c24644dde0849a3c12bb093c9231f421088c952bcd9174c98c52f385f735157",
+        "source": "generated"
+      },
+      ".github/skills/gofer-plan/SKILL.md": {
+        "sha256": "f37d4ba44d638f8ad42b742e6c57591277387f98cc5277c59eef5f91a4a98fd7",
+        "source": "generated"
+      },
+      ".github/skills/gofer-side/SKILL.md": {
+        "sha256": "a999f0b1ca5f797f70ae275d6ffd465611792ebf578181fdfd869efcd156f89f",
+        "source": "generated"
+      },
+      ".github/skills/gofer-spec-summary/SKILL.md": {
+        "sha256": "6be8758700bea8429810658df4b7eb2d91a8874e3ec82fdccd441969e5379664",
+        "source": "generated"
+      },
+      ".github/skills/gofer-tdd/SKILL.md": {
+        "sha256": "4f14746dad3b37cd0af5faa24c64475e44b4cf638a8427fb307d0a49b228e4bf",
+        "source": "generated"
+      },
+      ".github/skills/gofer-vocabulary/SKILL.md": {
+        "sha256": "16255ee3e4463be45162c46cb99b428f8fd2b6404f0f01ca79dfbd783e8f0a77",
+        "source": "generated"
+      },
+      ".github/skills/gofer-zoom-out/SKILL.md": {
+        "sha256": "00d9d11ad1f122bef4cd213e250f6f0f6c66cb033965753ec2bb5ff4e19366aa",
+        "source": "generated"
+      },
+      ".grok/skills/eai-update/SKILL.md": {
+        "sha256": "2a9eba29b7e610302a7848bc4443c8674f2469af8efb85299b0bfdf46b462b86",
+        "source": "bundled"
+      },
+      ".grok/skills/eai/SKILL.md": {
+        "sha256": "f58284409620c6bc22a903e229166eb9d444f85c12d0ec96f21c74fe24d59773",
+        "source": "bundled"
+      },
+      ".specify/commands/.gitkeep": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "source": "bundled"
+      },
+      ".specify/commands/0_gofer_start.md": {
+        "sha256": "5f4246fcd5178b417bc0ab32ab801eb7aa1c74e61597ba99327e7a8b79452ae5",
+        "source": "bundled"
+      },
+      ".specify/commands/0a_problem_validation.md": {
+        "sha256": "024be174e60b7ef3286b657386424088dc3523e05ccbf8c05b18b31c4d62ddd3",
+        "source": "bundled"
+      },
+      ".specify/commands/1_gofer_research.md": {
+        "sha256": "f9cb9dd1d67a3f81370b61255eff7340da82d2506a953fc35e09270143efa532",
+        "source": "bundled"
+      },
+      ".specify/commands/10_gofer_cloud.md": {
+        "sha256": "2950fe20a2701008eb666f0c5233963e018c7236390c3b079b48f37107170794",
+        "source": "bundled"
+      },
+      ".specify/commands/2_gofer_specify.md": {
+        "sha256": "b262cb4968cc8c272dd84528f39872c67adbcdd3fe9ed23205fe75045d92c1ec",
+        "source": "bundled"
+      },
+      ".specify/commands/3_gofer_plan.md": {
+        "sha256": "897761732aec8c5bc0a0a9c46c704883b5d64e63099e7e7165bf03118a033c0e",
+        "source": "bundled"
+      },
+      ".specify/commands/4_gofer_tasks.md": {
+        "sha256": "085e8711646b5a9a14d809ed673aff5cdeaf903efff1a296db3c3277fcec00e7",
+        "source": "bundled"
+      },
+      ".specify/commands/5_gofer_implement.md": {
+        "sha256": "26640b610095ff5a60a6c5680f55567d100da8d35174b97657e4beb9aefea8e2",
+        "source": "bundled"
+      },
+      ".specify/commands/6_gofer_validate.md": {
+        "sha256": "ce0fb5eebde99f594de6c7fd0637c0d56d8ffba8e6a9c2965e2ff04e48b724ea",
+        "source": "bundled"
+      },
+      ".specify/commands/7_gofer_save.md": {
+        "sha256": "a529023cbac2538d5f44cbd661c2e6faa172d3c7b19fe97091bfd688cfa419b8",
+        "source": "bundled"
+      },
+      ".specify/commands/7a_stakeholder_comms.md": {
+        "sha256": "74e3e4f345de98c3da311b049063555ea54fb931f85f3cfd7d040e2a14861745",
+        "source": "bundled"
+      },
+      ".specify/commands/8_gofer_branding.md": {
+        "sha256": "8b9a0e601ee2b201431ca7b704adfd9d6716c309a7289e8c85d2febe09835b3b",
+        "source": "bundled"
+      },
+      ".specify/commands/9_gofer_tests.md": {
+        "sha256": "e8e4369487f1f97920b63beb2890c810441687e45ce64fe223d7023591f8c046",
+        "source": "bundled"
+      },
+      ".specify/commands/gofer_bootstrap_workspace.md": {
+        "sha256": "1a43f2a462855e607cbe79f0d95aa2bd012dd7b77e385b58f8101c3ea19aa108",
+        "source": "bundled"
+      },
+      ".specify/commands/gofer_check_workspace.md": {
+        "sha256": "b88530260ba3308fd9aab4e1401e6b62755d059c1ec424e72dbd77d779d14155",
+        "source": "bundled"
+      },
+      ".specify/commands/gofer_constitution.md": {
+        "sha256": "78f80eb35d419b21c4f539a914bd4959535c96ea09f305ad808701839d49d4d1",
+        "source": "bundled"
+      },
+      ".specify/commands/gofer_diagnose.md": {
+        "sha256": "5ed58a26370b4cd356f1dff9221cc87519466cf041cd9b09e99012001f915e56",
+        "source": "bundled"
+      },
+      ".specify/commands/gofer_eai_first_run.md": {
+        "sha256": "f377b7795c878e53e034f4d8c911d7419551d93330548cafb17fe677f755898c",
+        "source": "bundled"
+      },
+      ".specify/commands/gofer_hydrate.md": {
+        "sha256": "b68fefbe91da1261af34d3ba90266a53f9f1abec68b39335cbe5ae17472d017a",
+        "source": "bundled"
+      },
+      ".specify/commands/gofer_personality.md": {
+        "sha256": "ecd89b71f831968e949dcb7558163719a4864aebe7d6fad6a7a19e4fa22f7e61",
+        "source": "bundled"
+      },
+      ".specify/commands/gofer_plan.md": {
+        "sha256": "4c37efa7acafe8aa0500e53b8f3cabce471d887021cd345327c2fa832979b1e0",
+        "source": "bundled"
+      },
+      ".specify/commands/gofer_side.md": {
+        "sha256": "830a3c785616574d37df822dea85014e6d5d1bc4b71a35e864ed7b2c89043870",
+        "source": "bundled"
+      },
+      ".specify/commands/gofer_spec_summary.md": {
+        "sha256": "1dab5d23e1a21146e2559f83965b3ea860214efcbd3413532b663fe896534b8b",
+        "source": "bundled"
+      },
+      ".specify/commands/gofer_tdd.md": {
+        "sha256": "d7201dc29634c5b31fb3e495dd1b5401816c474a091c380354a326fdd240ff1a",
+        "source": "bundled"
+      },
+      ".specify/commands/gofer_vocabulary.md": {
+        "sha256": "cff60478bef990592fe520edd8f051d5f6a5b092323bcbb3cb724dad6efc5daf",
+        "source": "bundled"
+      },
+      ".specify/commands/gofer_zoom_out.md": {
+        "sha256": "08dbf9e4ec2e64ffb18ad41079f0a9b62d8127a152de91e0cdf9ec6b56767a2e",
+        "source": "bundled"
+      },
+      ".specify/config/object-type-routing.json": {
+        "sha256": "61f1ef021645683847928f44564f40707f9efd973e58044a787c227f9cf82639",
+        "source": "bundled"
+      },
+      ".specify/contracts/object-type-routing-v1.json": {
+        "sha256": "e584d24fe3fa7c148d524ed1875c702a3f9a7af5dfff4ec379880e7078d74c39",
+        "source": "bundled"
+      },
+      ".specify/README.md": {
+        "sha256": "89b97df53133a04ea7568b6d5fa2319fada7b0fe9177dc4523c88d4d24969564",
+        "source": "generated"
+      },
+      ".specify/references/blocker-mediation.md": {
+        "sha256": "e1cd2f8bedabb1b421885eb44cb9fdb469683826dd6744478961009e56104d1b",
+        "source": "bundled"
+      },
+      ".specify/references/business-updates-and-goal-checks.md": {
+        "sha256": "bbd6548eca42df3fea9f50435196c1e81a05e17616c052aabfb24fd8e57bfa62",
+        "source": "bundled"
+      },
+      ".specify/references/delivery-lineage.md": {
+        "sha256": "a23d60a7a463c2ef6bf1e9f5c026352a7e30209f31df74a9cad0be56c2001a34",
+        "source": "bundled"
+      },
+      ".specify/references/mvp-capability-validation.md": {
+        "sha256": "91574abc75a6c3f16a633360a432eb1e2aa8ea27a52b843fc8c2c2e904dd810f",
+        "source": "bundled"
+      },
+      ".specify/references/platform/deployment-repo.md": {
+        "sha256": "af1107251740d6b9f2dacc9e04a5cb33b9836e96bbd12a56e80fd12afc677c5f",
+        "source": "bundled"
+      },
+      ".specify/references/platform/eai-app-template.md": {
+        "sha256": "f2621170311783f8094ce272b8d0f988420508a0ff64626fb6c874ad1e167b45",
+        "source": "bundled"
+      },
+      ".specify/references/platform/eai-auth-access.md": {
+        "sha256": "d1258e326872d4355d4872f0fb2ba29c0e1f3887e348eab4e4b7971da7dd9c71",
+        "source": "bundled"
+      },
+      ".specify/references/platform/eai-config-driven-ui.md": {
+        "sha256": "f9cf5e3205669cfb113f5f2b7b431dc1f8e94a93c94ba690800f9449d82cd661",
+        "source": "bundled"
+      },
+      ".specify/references/platform/eai-error-catalog.yaml": {
+        "sha256": "0b796a7cd38fb9def00dae71d81b9ec47b3094c7700b99771c34d0bee37a2b1e",
+        "source": "bundled"
+      },
+      ".specify/references/platform/eai-repo-contract.md": {
+        "sha256": "36240151321229f06411a3762dc4cc005a1e9d074b5faf618b25f7396926fbb7",
+        "source": "bundled"
+      },
+      ".specify/references/platform/eai-service-patterns.md": {
+        "sha256": "55eafa25ef95b40c57a19dadfddb99607bd9a3d14b945eb4398cd2fbaac4aaf6",
+        "source": "bundled"
+      },
+      ".specify/references/platform/eai.md": {
+        "sha256": "2f20a970c8df7eb1a84787bc8583ce683a1721251245d073e42b81faeaf0d76f",
+        "source": "bundled"
+      },
+      ".specify/references/platform/README.md": {
+        "sha256": "9d9d3ca731ef06d684e8b2631c7e879a8149fdddfa503d490f1ab71afb5906b1",
+        "source": "bundled"
+      },
+      ".specify/references/platform/vertical-template.md": {
+        "sha256": "2d3960e58ae525b71862255f471dba9a2e54d1930c4a6827091837ad2e2a59e1",
+        "source": "bundled"
+      },
+      ".specify/references/priority-outcome-protection.md": {
+        "sha256": "0d82c98052678fe3307a591f32c1850c8d51292cfc1784e24c942f16c63cb221",
+        "source": "bundled"
+      },
+      ".specify/schemas/object-type-identifier-audit-v1.schema.json": {
+        "sha256": "44f568b7a7d3f26a761649b8d57b468cfd62ff2d6e481b014165d8ecc2a2ddfc",
+        "source": "bundled"
+      },
+      ".specify/schemas/object-type-routing-phase-bundle-v1.schema.json": {
+        "sha256": "fcc3af5286227c62e06f22262bb5f84aa7dfafd6fbbb9f5ac8297f3adac3ed5a",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/check-context-health.sh": {
+        "sha256": "52eec3939d8ef65e1c63ed89cc701d2ee973d5e84d523e412573ad0d040ddf6e",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/check-persona-pack.sh": {
+        "sha256": "e149f00952006d134c17e614a932821b2df481d5649828a5b71da0bce422756c",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/check-prerequisites.sh": {
+        "sha256": "ec1e8a12f00bf742c47f8421dee9e40cc76c655feb1ea6d52ccf8ec0cad76370",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/common.sh": {
+        "sha256": "b40be34c251a60926766613662bafe47d75e92f6e293bfed2690b7c489c40496",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/create-new-feature.sh": {
+        "sha256": "ab6eaa8d4f6ab74dd46ddb7f783084cb0ea71a9bdf858d5cade5f7e13a5f3570",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/install-optional-tools.sh": {
+        "sha256": "9b870c7c803df01738a614aab115e41e1e880d08244992e905694456ee73abac",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/log-stage.sh": {
+        "sha256": "12bfaef7bd3c9eb46a10763fde5cde9999e4e635c003a4ca79cd02224719c302",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/mark-task-complete.sh": {
+        "sha256": "22e83aec457d0502bf4903199a979140eaa71a4a7d66168225d81d49c4f8e18e",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/pipeline-state.sh": {
+        "sha256": "95503a13ff53fba1c4ca8027e3732f5e2a830dcddef1e4bef4a2918af41011ca",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/read-failed-approaches.sh": {
+        "sha256": "521e9df3a34bad877ecb651441b7b510e1b45af3fbd4c17fa80191538e610991",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/read-session-memories.sh": {
+        "sha256": "57ec39bc2813c0b69d2c8f8120b52becffc729c4bddd2f031d1ab3d95c49ab68",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/save-checkpoint.sh": {
+        "sha256": "4863b3c462be4a12db2fb1d80367850954acf9173ea58c8f54232e00342c4cf6",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/setup-plan.sh": {
+        "sha256": "6193ffcb79d115e0d57e4215f4a6fcdc1d356a053b98813463c026e696f9926c",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/sync-implementation-status.sh": {
+        "sha256": "308f2613daf8654f37c5ce83e55c972603414959c8259e7943eb573d1da8398e",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/update-agent-context.sh": {
+        "sha256": "924517ff340d757af9d7dcb5203dccf8138fe46c6a6f0c555e5f98a1d8330693",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/validate-artifact.sh": {
+        "sha256": "ec1a112280b98881f6f4997ec8ae44a7880f4d5bb2969bc9db3b35152cdfac90",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/verify-object-type-routing-workspace.sh": {
+        "sha256": "91bd09f7f362922956688c5d00e10975a539d22e59c99c7676bfd8a2c8e78cb0",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/verify-task.sh": {
+        "sha256": "853eb8eb6fc1d0bb985430e5551ef15cc2d0a8fd7df604693570aaab62baebe6",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/write-failed-approach.sh": {
+        "sha256": "e4ede2625dd28a3ba160938a38292e231298f4f6fb67d59d8734adef290905f6",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/write-periodic-checkpoint.sh": {
+        "sha256": "c55a5d297cabeea331d30273fc975600547759c8966f974c04b6b68785e81ead",
+        "source": "bundled"
+      },
+      ".specify/scripts/bash/write-session-memory.sh": {
+        "sha256": "577df2dc0e888d8a59ef2c93caec6efa3db202537fcdada330aebb47347ab0f5",
+        "source": "bundled"
+      },
+      ".specify/scripts/hooks/agent-stop.mjs": {
+        "sha256": "e57f6e3cef8ffe6c8b13ca7478d7cfab5ee24cf07b0af67a8f3c1cb8963731d8",
+        "source": "bundled"
+      },
+      ".specify/scripts/hooks/log-stage-launch-time.mjs": {
+        "sha256": "fa73629ab9e5a28ec317b5b21d5cd9c27f643812f19298690bc1031837a529d6",
+        "source": "bundled"
+      },
+      ".specify/scripts/hooks/post-tool-use.mjs": {
+        "sha256": "a3e0f7c26f079558176f699e367a8f30a13c25bab1be4d01a13d29dee64ba3c4",
+        "source": "bundled"
+      },
+      ".specify/scripts/hooks/queued-input.mjs": {
+        "sha256": "7b37a7dd1d538313ee00184acb19d766a6dbd03f574cf0e8c86b95180cf86253",
+        "source": "bundled"
+      },
+      ".specify/scripts/hooks/session-lifecycle.mjs": {
+        "sha256": "6c117df97bc2cdc8ed0e5f83f9f85b08da157782a9817a3a373e42b651849ad2",
+        "source": "bundled"
+      },
+      ".specify/scripts/hooks/user-prompt-submit.mjs": {
+        "sha256": "9ae8e5c0645f6946bc15ddf66e058444d239f24af4d29d8715611a99ca351b2f",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/canonical-descriptions.mjs": {
+        "sha256": "1504381280cb8e8f1401f6f33a2318e2f36ab5673606a839fba72a243059cf26",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/check-version-alignment.mjs": {
+        "sha256": "5ac5f25089ba8d44b7319428a5d4fa0c081c26033f015b47a578d6b921980930",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/codex-doctor.mjs": {
+        "sha256": "b88f4a9ceaeef9d686e62f487b4578ed392ccaba3701c9ac7d7a10d4d7da827a",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/delivery-lineage-corpus.mjs": {
+        "sha256": "db1dad9f98de9565943ac1f6e2f13e864cb133a43a93d67b1870e3ac05c86b72",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/eai-app-template-readiness.mjs": {
+        "sha256": "f2f8d4add6af171a4680c2300097c32b7055286e02edf56b9f0873a1faf1408c",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/generate-commands.mjs": {
+        "sha256": "1e40cb0b0c994b7cb241ea138f58e552e278df3b08f17c76791c165d2e434bbd",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/generate-issues.js": {
+        "sha256": "aaf50e1f192167142d55230f56f6766c791a52e08504d3afc4a9a8b0910af9c8",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/gofer-blocker-control.mjs": {
+        "sha256": "beeba050e750793286712d69af48ed9709a421fcf354b0077aebf19f71197a9b",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/gofer-closed-loop-audit.mjs": {
+        "sha256": "f7438e79a6def5992046ecb61cc47b7a2b8b736bd46842b67a33caf327c77444",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/gofer-delivery-check.mjs": {
+        "sha256": "19fe2d3deb63c5db58c89d58fadc4f3aa05cb9fff5922e6782f9d8f279fb9f8a",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/gofer-local-settings-cleanup.mjs": {
+        "sha256": "a05c41464f354926051f82a16e7c8e7794a6808aa3eb2fd6e7d54a6bf1fb20b5",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/gofer-loop-audit.mjs": {
+        "sha256": "0bbaad1f4e8c531de07c6b50b26bd4704b111bf153599630df9ae58236daeb40",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/gofer-performance-report.mjs": {
+        "sha256": "ec1498083c4a697c5db53cac436c266ce9a684c95ecfcc3d54bca239e48d62b0",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/gofer-priority-check.mjs": {
+        "sha256": "aed3e4a3060507277e48724051cfc9d9db48664042b1d91fb20ae293021d121b",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/gofer-response-check.mjs": {
+        "sha256": "b0301ba4d5a48d3c75d6afff78b8df48c5721819af35e9671f30bc2491d8276d",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/gofer-surface-update.mjs": {
+        "sha256": "3a985446e80e36b1e7427c84acd6239a86bf31d364c7511e3b7dfe1421a0cf7b",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/gofer-ui-preview.mjs": {
+        "sha256": "f478caa1459482e33cff77a8ca310bb0335d9094b14680236c01de7a0d8c5dce",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/gofer-workspace-bootstrap.mjs": {
+        "sha256": "d03c9683131b06436cbfa6af443e701ff59631a65ace6468825f3e4328cda42d",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/gofer-workspace-check.mjs": {
+        "sha256": "0bebcfe7e53278bec310d7089716fb43c48c029dd0a32212c06d2e1c0f9fed58",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/lib/ai-leverage-tagger.mjs": {
+        "sha256": "150e83a514d15e0f5e784df68f5925d63ceaa7d8545700d0e231aeb6ab4c205a",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/lib/assemble-stakeholder-pack.mjs": {
+        "sha256": "27ea7924228f99135199474072696514733daf6531f4723792d5c56486826605",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/lib/marp-deck.mjs": {
+        "sha256": "4801b5e16a388d2a7dc543098e49c9301bcdca8c5ec311b647ee1a2b6cf9848d",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/lib/mermaid-tabular-fallback.mjs": {
+        "sha256": "eae9db315b1907cbcae35bf8b8c3961939cb6b89e626bb56e0aeba131d39beef",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/lib/render-visual.mjs": {
+        "sha256": "58049b29b8cf70c22e9eecdea875d797b99a2fc998f429495572a048734694d3",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/lib/validate-aliases.mjs": {
+        "sha256": "23c3246385a8ab4d316aa5e2446727010501dac0939a080cb87cac5c31dbd9ff",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/lib/visual-counts.mjs": {
+        "sha256": "a0cff3b02edcc247b40f04d8ed953b5c53225b2eb6b8f3a5dffeda54bbb79f0b",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/lib/visual-pass-pipeline.mjs": {
+        "sha256": "5d4ce6c6d7136b794ae65ddd67c0cc34b2df80b9b9f5aa4fbfe33cbbca01f37a",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/mermaid-export.mjs": {
+        "sha256": "8392886861172b6d648139c6645586beed35369bbf7b19430109f3e3aeacea7e",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/object-type-routing-phase-bundle.mjs": {
+        "sha256": "9dd304f8d0b71930880e442fb93bbda36b81a7ab27242018695bb18e2ee6e6e9",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/package-agent-plugin.mjs": {
+        "sha256": "e4a8cc8cf2581b543c3de671d24d0470d360c8c58ba8747c0adbca81fb770cdd",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/parse-stage-command.mjs": {
+        "sha256": "ffe6dbc4778f91e9f012787df6897a170cf4deab2281b885c8aca60381485a37",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/render-delivery-lineage.mjs": {
+        "sha256": "57530f548ee3b4923c3157c2167eebf35865be4206c43eb9d944a3249d334957",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/schemas/.gitkeep": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/schemas/stage-command.schema.json": {
+        "sha256": "c4671e259d7d4f2c169fce5e192e75c39d4b9e6a11c1c43c82b6fe253de78cc8",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/sync-extension-resources.mjs": {
+        "sha256": "76a43d4fd75c0445e6e8439765c0bb4e1cd27bb755c27db6bc5d638b6c4da391",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/validate-object-type-identifiers.mjs": {
+        "sha256": "3297c4f5fc1d67907ed32e6bba2090246428ba9ae6f0635aee13923c1b9cf3c8",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/validate-object-type-routing-workspace.mjs": {
+        "sha256": "54a7a202db9b58d3ab4dda6b93173f8a391c192299a6a9d5f7ecdcc27feaba66",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/validate-v4-resource-contract.d.mts": {
+        "sha256": "e0ea0a98c5dfc7d7e320568ff07e800114e952a5a06e6ba68c416468404ac285",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/validate-v4-resource-contract.mjs": {
+        "sha256": "4b07d72993b7b92744ee551de816d85a0e4cc8de72add7ff52c6bf43a9cd857f",
+        "source": "bundled"
+      },
+      ".specify/scripts/node/workspace-bootstrap-lib.mjs": {
+        "sha256": "ee4fb9a083add8d03340dd35968a94b387295205be44c3067d8b14c8b94c88df",
+        "source": "bundled"
+      },
+      ".specify/scripts/powershell/install-optional-tools.ps1": {
+        "sha256": "a7fbfefad761074480f634504fb88d6739050ac95c501dd1d59380e258879811",
+        "source": "bundled"
+      },
+      ".specify/templates/agent-file-template.md": {
+        "sha256": "55ed438c2e861444ef22f45fe5238f3ebf0dc1cb6e53067d7232fbbf4ce82892",
+        "source": "bundled"
+      },
+      ".specify/templates/assumptions-template.md": {
+        "sha256": "fcb4851aef32cd5765f46afb12404eaa774be9e447e94229f4b7268af27996e9",
+        "source": "bundled"
+      },
+      ".specify/templates/audit-history-template.md": {
+        "sha256": "ee6391717b4a8005b94f6bba6360e02b707191af3fd84da76934a5b2e2ccb58e",
+        "source": "bundled"
+      },
+      ".specify/templates/brand/brand-profile-template.json": {
+        "sha256": "7ea28c896c3d21a1e04af4d3e1f62ac1d22ea023546e2e13bbe115f560bd61ef",
+        "source": "bundled"
+      },
+      ".specify/templates/brand/document-style-template.md": {
+        "sha256": "263dca8f9e5ef30630b23ae65d0df49ae44500353d3830cd1cfeebc763ab5865",
+        "source": "bundled"
+      },
+      ".specify/templates/brand/marp-theme-template.css": {
+        "sha256": "605b156f97d867ffe4a35d3b971c25328cb5768f1f134aaccca1d0c12c3f8ce8",
+        "source": "bundled"
+      },
+      ".specify/templates/brownfield-analysis.md": {
+        "sha256": "ae6d278b797b7338c65125bb89b03447bfdb1407dda5833bc079abafc32fb317",
+        "source": "bundled"
+      },
+      ".specify/templates/build-map-template.md": {
+        "sha256": "42aa31ba0466f2ec7968c64ce86552512a49ab47dc1b50cf32521b1982e12172",
+        "source": "bundled"
+      },
+      ".specify/templates/business-metrics-template.md": {
+        "sha256": "c9313b1782fde4da46538f12650f3ec1796a66624c751e861164b9d53118a2ea",
+        "source": "bundled"
+      },
+      ".specify/templates/business-owner-summary-template.md": {
+        "sha256": "c715776bd0577722dd864759e11db3e5499afd33905afe81f0db5e6446f347c4",
+        "source": "bundled"
+      },
+      ".specify/templates/business-scenarios-template.json": {
+        "sha256": "44f4943b795a515d572a771d92e6dc7000d1db6c36b946f64e77961eea5d9f2c",
+        "source": "bundled"
+      },
+      ".specify/templates/checklist-template.md": {
+        "sha256": "d284dadead5219be442b3dd89fa014f0b5faeabe82c552fc19238714744ed52e",
+        "source": "bundled"
+      },
+      ".specify/templates/ciso-security-summary-template.md": {
+        "sha256": "30f1c9bf9922e896c825e997d42b3c77cb08ebfc3d48aecc2db615e3314ca9b9",
+        "source": "bundled"
+      },
+      ".specify/templates/context-bundle-template.md": {
+        "sha256": "a7cf431ea25fa90f17586079ab41a61ce439227f4eef04468430bb4d3efd6117",
+        "source": "bundled"
+      },
+      ".specify/templates/contract-pack-template.md": {
+        "sha256": "4edb4e21f66006ffc5606baefc01329bef3475dadc9341ca99fe5027d6d062a7",
+        "source": "bundled"
+      },
+      ".specify/templates/cto-architecture-summary-template.md": {
+        "sha256": "f5a1222df1f5d8c8ea2ba89f3a8fada615d39ed8c52337a14db17d5502cfe6f3",
+        "source": "bundled"
+      },
+      ".specify/templates/delivery-lineage-template.json": {
+        "sha256": "b785f68fa690759fe5008811e40840592faab16f139beeb5c95e43656937680d",
+        "source": "bundled"
+      },
+      ".specify/templates/discovery-template.md": {
+        "sha256": "3e7835dea4d738ef8a6e3ad07a3e4f3657f69ec0adf04e1671be2cd47e09d536",
+        "source": "bundled"
+      },
+      ".specify/templates/eai-preflight-template.md": {
+        "sha256": "1ef87cc6fdf8b8219cc96aabe8c33c93a66b5807d822671ed9138be8cf3c0219",
+        "source": "bundled"
+      },
+      ".specify/templates/goal-ledger-template.json": {
+        "sha256": "6863ca48b41273701afdd99f863244c1377a6f54a0dfe2530f56d870ea92b35d",
+        "source": "bundled"
+      },
+      ".specify/templates/gofer-model-policy.yaml": {
+        "sha256": "10bbaf7517e2a13ec4eb5c1998d4ac4a861000f1353bf6551b5ab400624dbac1",
+        "source": "bundled"
+      },
+      ".specify/templates/issues-template.md": {
+        "sha256": "a40f9b0d24ddba3db27de3970936e29d49623d044948c1bba99af80ad6e86a51",
+        "source": "bundled"
+      },
+      ".specify/templates/journey/base-journey.md": {
+        "sha256": "400350ff4d90cbb9ec05f4447cf3fa12972794059c51dc1cdc240c69b2718b47",
+        "source": "bundled"
+      },
+      ".specify/templates/journey/industry-variants.yaml": {
+        "sha256": "a243da2ab9790cfaf67a2dbb6cb8d238532898dfbe19cf51b106d4ae325f18d2",
+        "source": "bundled"
+      },
+      ".specify/templates/loop-contract-template.json": {
+        "sha256": "dd2a202920a728f5355ec852f1c5933e60bbd2c506d61bc2fc8a8f12173a5677",
+        "source": "bundled"
+      },
+      ".specify/templates/plan-template.md": {
+        "sha256": "b966a234776c70b53de7c48b8bc2b8b06c0a1295ae8480160a1e2427ad7abfbd",
+        "source": "bundled"
+      },
+      ".specify/templates/priority-plan-template.json": {
+        "sha256": "a590fe720340f618179d31017b2204463e102649fa9d22b0200b944f00462156",
+        "source": "bundled"
+      },
+      ".specify/templates/problem-brief-template.md": {
+        "sha256": "34b324f362dd178d120453491ddd6931eba932c01e5f0602c390a2791e6fcbbc",
+        "source": "bundled"
+      },
+      ".specify/templates/proposal-review-template.md": {
+        "sha256": "662c763ecd41be4242060cb88a24c0bab0af47414d863990d2a442b708a50f1f",
+        "source": "bundled"
+      },
+      ".specify/templates/release-capability-ledger-template.md": {
+        "sha256": "c481aaec4edce087cb5188e4f36a8d466cae226172e4743322831a5406935f10",
+        "source": "bundled"
+      },
+      ".specify/templates/research-template.md": {
+        "sha256": "1eb551a4059dd48e57e42e63d471fa4c3570f8fc973ad8fbf5df18e7e8daab70",
+        "source": "bundled"
+      },
+      ".specify/templates/reuse-scan-template.md": {
+        "sha256": "f24b53b7e8688aedc7a650931bb2252fa732bf33787c5fa4a2a6c1c183f2321c",
+        "source": "bundled"
+      },
+      ".specify/templates/sequence-diagrams/option-spectrum.yaml": {
+        "sha256": "7d622c48883ab6eade0049e91a29e6958194f7c2b98d7d6a80732c0baf1422e9",
+        "source": "bundled"
+      },
+      ".specify/templates/service-fit-matrix-template.md": {
+        "sha256": "46d89407bb626b75b4adf3a9d6b03019483de0cabd518ae91fe7a948d64eb12b",
+        "source": "bundled"
+      },
+      ".specify/templates/session-handoff-template.md": {
+        "sha256": "c78f2f64562cca6e28dcc5de864811d3a8a4d9a44b6d2130dbe3155884f40387",
+        "source": "bundled"
+      },
+      ".specify/templates/spec-summary-template.md": {
+        "sha256": "a0e06b9c9329f4fdca57ee152e48325fcede90a6da9657109ab1d604e8e1173b",
+        "source": "bundled"
+      },
+      ".specify/templates/spec-template.md": {
+        "sha256": "489e64e71134b9a140d5e1d73810877a9d8f1119a929bb26f6fe3b8184ce9a2e",
+        "source": "bundled"
+      },
+      ".specify/templates/stakeholder-comms-template.md": {
+        "sha256": "68ea49373118e6af19a9136df94c5d245f5309c4817671d2f6df2e201154824f",
+        "source": "bundled"
+      },
+      ".specify/templates/stakeholder-review-index-template.md": {
+        "sha256": "7be3f50332f46383ac917f8835c423c0063e2e587b1340c0938c00b1812aa7fb",
+        "source": "bundled"
+      },
+      ".specify/templates/tasks-template.md": {
+        "sha256": "d3511b4935ca73378aab2130c724906ff2a2ee6be4cf7cdebf8e987c640762c7",
+        "source": "bundled"
+      },
+      ".specify/templates/ui-preview-brief-template.md": {
+        "sha256": "3645b715bf9a40ec801e79998f6c2305cdce289786ab7d8d583993de0be5e9ec",
+        "source": "bundled"
+      },
+      ".specify/templates/ui-review-log-template.md": {
+        "sha256": "091e15731ce4ca493dff647a67c97a242bafd0bc98cf21e86015acbcbf55ee0c",
+        "source": "bundled"
+      },
+      ".specify/templates/ui-show-and-tell-template.md": {
+        "sha256": "8cc7ce6cfa86751b197b9b5d439a54a96559105b5f951e31705d4112b431af84",
+        "source": "bundled"
+      },
+      ".specify/templates/visuals/.gitkeep": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "source": "bundled"
+      },
+      ".specify/templates/visuals/bounded-context-map.md": {
+        "sha256": "a561c5f0e138d4660222d5d4d5613dc2b5feb0d5644dbe0c1351c96e1e7cfc38",
+        "source": "bundled"
+      },
+      ".specify/templates/visuals/bounded-context-template.md": {
+        "sha256": "6a08e791c1897692640f77146db062c4a0e47ba4385fc7edd01b160b5ef34374",
+        "source": "bundled"
+      },
+      ".specify/templates/visuals/c4-container-template.md": {
+        "sha256": "103b005c74d7cb180259e8ed1550af6303117ff844400b2d3cdf13d0aaf82329",
+        "source": "bundled"
+      },
+      ".specify/templates/visuals/c4-container.md": {
+        "sha256": "a095f493befd9e4b0a5f599c11e02cdd0166921aca10f5e312f0442bb2cba131",
+        "source": "bundled"
+      },
+      ".specify/templates/visuals/c4-context-template.md": {
+        "sha256": "f06722020e90bb11df45d17c1faec12382b0d573c057bc87135bfd7fcf54f006",
+        "source": "bundled"
+      },
+      ".specify/templates/visuals/capability-heatmap-template.md": {
+        "sha256": "bac5dcaf8cc26ee389ab356a6c2af015babc67f71001f60b906b7552371727b1",
+        "source": "bundled"
+      },
+      ".specify/templates/visuals/data-model-erd-template.md": {
+        "sha256": "ddc3b63d3e7a6ab4b2be60d48d7794b8b126b676581485b4ac734062957008e1",
+        "source": "bundled"
+      },
+      ".specify/templates/visuals/erd.md": {
+        "sha256": "26e136433942ca0610c226ec003e99dc5f8f614229c7c900e18a0b4668412bf1",
+        "source": "bundled"
+      },
+      ".specify/templates/visuals/impact-canvas.md": {
+        "sha256": "cdfa50d4ef49924a7b2c0339e10400ef40c1ade0854dfaef7504278fbea48193",
+        "source": "bundled"
+      },
+      ".specify/templates/visuals/risk-heatmap-template.md": {
+        "sha256": "1c17064f73bc525ac8d86215ff5d9181a71c4a7f252d753048176343be2f7073",
+        "source": "bundled"
+      },
+      ".specify/templates/visuals/roi-projection.md": {
+        "sha256": "e832edca3009c73514515bda44f8da8fed3cbe5ccb3a6c37de1fc3cca2b2ee44",
+        "source": "bundled"
+      },
+      ".specify/templates/visuals/value-stream-asis.md": {
+        "sha256": "dc7a11f9139e4283cb4d24f2d999498e99d7cbd164478c0ae5aae4add186628b",
+        "source": "bundled"
+      },
+      ".specify/templates/visuals/value-stream-tobe.md": {
+        "sha256": "852f6570798758d9a2faf24189b0de6c0b509929bbfd0cf8c0e4103dccf3c01d",
+        "source": "bundled"
+      },
+      ".specify/templates/working-backwards-prfaq-template.md": {
+        "sha256": "5f0377c24f449026bd7d692f10babdaa59f341c9b7c24cf3ef3a4987703ec15b",
+        "source": "bundled"
+      },
+      ".system/skills/eai-update/SKILL.md": {
+        "sha256": "5a6104501d4ab4179d161a79034619cd0d40b042ef517b801520303765189b7d",
+        "source": "bundled"
+      },
+      ".system/skills/eai/SKILL.md": {
+        "sha256": "39224f11e50c93b4017158447eb22f77af4827b22e48e78fe94b42c059534ecb",
+        "source": "bundled"
+      },
+      ".system/skills/gofer-documentation/SKILL.md": {
+        "sha256": "3fe1e8c4c14745a9c99d0d245f2cc578aca0ae624a07aca14583afce710edfa3",
+        "source": "bundled"
+      }
+    },
+    "refreshedAt": "2026-09-10T22:49:02.254Z"
+  }
+}

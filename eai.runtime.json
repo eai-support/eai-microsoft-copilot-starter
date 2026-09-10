@@ -1,7 +1,7 @@
 {
   "$schema": "https://eai-support.github.io/eai/schemas/eai.runtime.schema.json",
   "schemaVersion": 1,
-  "name": "eai-app-template",
+  "name": "eai-microsoft-copilot-starter",
   "runtime": {
     "framework": "nextjs",
     "minimumNodeVersion": "24"

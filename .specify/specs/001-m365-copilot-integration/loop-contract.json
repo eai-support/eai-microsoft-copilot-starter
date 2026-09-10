@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "loopId": "001-m365-copilot-integration",
+  "profile": "dynamic",
+  "objective": "Design and validate a reusable Microsoft Copilot connection that uses EAI External ID, PublicAPI, Authz and ResourceAPI without bypassing tenant, authorization, audit or data controls.",
+  "entryStage": "1_gofer_research",
+  "maxIterations": 3,
+  "budget": {
+    "maxWallClockMinutes": null,
+    "maxModelSpendUsd": null,
+    "stopOnBudgetWarning": true
+  },
+  "modelTiers": {
+    "simple": "Use the repo model policy simple tier.",
+    "medium": "Use the repo model policy medium tier.",
+    "hard": "Use the repo model policy hard tier for identity, security, and architecture.",
+    "arbiter": "Use the repo model policy arbiter tier only for contradictory security or release-critical results."
+  },
+  "evalCommands": [
+    {
+      "id": "research-loop-audit",
+      "stage": "1_research",
+      "command": "node .specify/scripts/node/gofer-loop-audit.mjs --feature-dir {FEATURE_DIR} --stage 1_research --json --strict",
+      "purpose": "Verify the bounded research loop, decision gates, and evidence contract before specification.",
+      "runWhen": "after research changes and before specification"
+    },
+    {
+      "id": "specification-loop-audit",
+      "stage": "2_specify",
+      "command": "node .specify/scripts/node/gofer-loop-audit.mjs --feature-dir {FEATURE_DIR} --stage 2_specify --json --strict",
+      "purpose": "Verify the reference architecture, requirements, use-case coverage and implementation decision gate.",
+      "runWhen": "after specification changes and before implementation planning"
+    }
+  ],
+  "successCriteria": [
+    {
+      "id": "SC-001",
+      "description": "Business owner selects the first journey, users, distribution model, identity model, and data posture.",
+      "evidence": ["assumptions.md", "spec.md"]
+    },
+    {
+      "id": "SC-002",
+      "description": "The selected design keeps every EAI read and mutation behind PublicAPI and Authz.",
+      "evidence": ["research.md", "copilot-eai-reference-architecture.md", "spec.md"]
+    },
+    {
+      "id": "SC-003",
+      "description": "A customer pilot proves tenant isolation, auditable actions, removal of access, and measurable cost.",
+      "evidence": ["validation-report.md"]
+    },
+    {
+      "id": "SC-004",
+      "description": "Exactly 100 ranked use cases fit the reusable connection without direct downstream-service or database access.",
+      "evidence": ["copilot-eai-100-use-cases.md", "copilot-eai-reference-architecture.md"]
+    }
+  ],
+  "stopConditions": [
+    {
+      "id": "STOP-001",
+      "description": "Stop broad implementation until the dynamic-profile decision gate is approved.",
+      "status": "satisfied"
+    },
+    {
+      "id": "STOP-002",
+      "description": "Escalate after three failed validation loops or any unresolved security boundary.",
+      "status": "active"
+    }
+  ],
+  "humanEscalation": {
+    "maxFailedIterations": 3,
+    "owner": "business owner and platform security owner",
+    "escalateWhen": [
+      "the pilot journey remains ambiguous",
+      "customer identity cannot be mapped safely to an EAI user and tenant",
+      "data must be indexed into Microsoft 365 without approved ACL and deletion controls",
+      "a preview Microsoft capability becomes production-critical"
+    ]
+  }
+}

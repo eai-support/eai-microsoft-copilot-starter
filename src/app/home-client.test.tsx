@@ -2,10 +2,6 @@ import { render, screen } from '@testing-library/react';
 
 import { HomeClient } from './home-client';
 
-jest.mock('@enterpriseaigroup/demo', () => ({
-  DemoPage: () => <div>Demo fallback</div>,
-}));
-
 jest.mock('@/components/generated-workflow/workflow-form', () => ({
   GeneratedWorkflowForm: ({
     branding,
@@ -15,6 +11,13 @@ jest.mock('@/components/generated-workflow/workflow-form', () => ({
 }));
 
 describe('HomeClient generated workflow runtime', () => {
+  beforeEach(() => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ docs: [], total: 0 }),
+    });
+  });
+
   it('exposes semantic workflow markers on the rendered root', () => {
     const { container } = render(
       <HomeClient
@@ -49,9 +52,19 @@ describe('HomeClient generated workflow runtime', () => {
     expect(screen.getByText('Acme Council')).toBeVisible();
   });
 
-  it('keeps the general template demo when no generated runtime is exported', () => {
+  it('renders the case assistant when no generated runtime is exported', async () => {
     render(<HomeClient />);
 
-    expect(screen.getByText('Demo fallback')).toBeVisible();
+    expect(
+      screen.getByRole('heading', {
+        name: 'Put governed customer work inside Copilot.',
+      }),
+    ).toBeVisible();
+    expect(
+      screen.getByRole('heading', { name: 'Customer case workspace' }),
+    ).toBeVisible();
+    expect(
+      await screen.findByText('Select a case to see its governed record.'),
+    ).toBeVisible();
   });
 });

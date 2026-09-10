@@ -2,7 +2,6 @@
 
 import { type ReactNode } from 'react';
 import { SessionProvider } from 'next-auth/react';
-import { DemoProvider } from '@enterpriseaigroup/demo';
 import type { EAIConfig } from '@enterpriseaigroup/core';
 
 interface ProvidersProps {
@@ -22,19 +21,12 @@ const NEXT_PUBLIC_BASE_PATH = (
   process.env.NEXT_PUBLIC_APP_BASE_PATH ?? ''
 ).replace(/\/+$/, '');
 const SESSION_BASE_PATH = `${NEXT_PUBLIC_BASE_PATH}/api/auth`;
-// DemoProvider also fetches its runtime config via raw fetch() — same
-// basePath caveat. Default endpoint is /api/eai/config; prefix it.
-const RUNTIME_CONFIG_ENDPOINT = `${NEXT_PUBLIC_BASE_PATH}/api/eai/config`;
-
 export function Providers({ children, tenants }: ProvidersProps) {
+  void tenants;
+  if (process.env.NEXT_PUBLIC_EAI_STARTER_DATA_MODE === 'synthetic') {
+    return children;
+  }
   return (
-    <SessionProvider basePath={SESSION_BASE_PATH}>
-      <DemoProvider
-        tenants={tenants}
-        runtimeConfigEndpoint={RUNTIME_CONFIG_ENDPOINT}
-      >
-        {children}
-      </DemoProvider>
-    </SessionProvider>
+    <SessionProvider basePath={SESSION_BASE_PATH}>{children}</SessionProvider>
   );
 }

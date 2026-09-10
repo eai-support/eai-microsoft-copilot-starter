@@ -17,9 +17,12 @@ const SERVER_TENANT_ID =
 const PRODUCT_SLUG =
   process.env.EAI_PRODUCT_SLUG ||
   process.env.NEXT_PUBLIC_APP_NAME ||
-  'eai-app-template';
+  'eai-microsoft-copilot-starter';
 
 async function redirectToResolvedAppHost(): Promise<void> {
+  if (process.env.EAI_STARTER_DATA_MODE === 'synthetic') {
+    return;
+  }
   const accessToken = await getAccessToken();
   if (!accessToken) {
     return;

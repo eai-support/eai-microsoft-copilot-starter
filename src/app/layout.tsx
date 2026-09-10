@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import type { Metadata } from 'next';
-import { Geist } from 'next/font/google';
+import { DM_Sans, Fraunces } from 'next/font/google';
 import { headers } from 'next/headers';
 import Script from 'next/script';
 
@@ -9,14 +9,20 @@ import { Providers } from './providers';
 import { tenantConfigs } from '@/eai.config';
 
 // Fonts
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const bodyFont = DM_Sans({
+  variable: '--font-body',
+  subsets: ['latin'],
+});
+
+const displayFont = Fraunces({
+  variable: '--font-display',
   subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: 'EAI App Template',
-  description: 'Enterprise AI application template',
+  title: 'EAI Case Assistant for Microsoft Copilot',
+  description:
+    'A governed EAI case experience for web, Teams and Microsoft 365 Copilot.',
 };
 
 export default async function RootLayout({
@@ -35,10 +41,10 @@ export default async function RootLayout({
           {`console.log("Nonce is attached securely!")`}
         </Script>
       </head>
-      <body className={`${geistSans.variable} antialiased`}>
-        <Providers tenants={tenantConfigs}>
-          {children}
-        </Providers>
+      <body
+        className={`${bodyFont.variable} ${displayFont.variable} antialiased`}
+      >
+        <Providers tenants={tenantConfigs}>{children}</Providers>
       </body>
     </html>
   );

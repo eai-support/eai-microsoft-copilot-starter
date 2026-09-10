@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: eai-app-template-ci-${{ github.event.pull_request.number || github.ref }}
+  group: eai-copilot-starter-ci-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 env:
@@ -31,17 +31,11 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
 
-      - name: Configure npm for GitHub Packages
-        run: |
-          echo "@enterpriseaigroup:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
-
       - name: Install dependencies
-        # npm ci can miss optional native bindings used by Tailwind/Next on Ubuntu.
-        run: npm install
+        run: npm ci
 
-      - name: Install Linux native CSS bindings
-        run: npm install --no-save lightningcss-linux-x64-gnu@1.30.2 @tailwindcss/oxide-linux-x64-gnu@4.1.18
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
 
       - name: Build object types
         run: npm run build:object-types
@@ -51,6 +45,12 @@ jobs:
 
       - name: Unit tests
         run: npm run test:unit:ci
+
+      - name: PublicAPI and Copilot contract tests
+        run: npm run test:contract
+
+      - name: Validate Microsoft package
+        run: npm run m365:validate
 
       - name: Source-unknown handoff evidence test
         run: npm run test:source-unknown-evidence
@@ -69,3 +69,9 @@ jobs:
 
       - name: Production build
         run: npm run build
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Business journey
+        run: npm run test:business-scenarios

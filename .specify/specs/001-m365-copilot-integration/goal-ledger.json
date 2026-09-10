@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "featureId": "001-m365-copilot-integration",
+  "featureName": "Microsoft 365 Copilot integration",
+  "status": "validated",
+  "lastRebaselineAt": "2026-09-10T08:02:40Z",
+  "objectiveConfidence": "high",
+  "goals": [
+    {
+      "id": "G1",
+      "goal": "Define a commercially viable Microsoft 365 Copilot channel that preserves EAI governance.",
+      "metric": "approved reusable connection architecture and one selected pilot",
+      "target": "one connection design validated across 100 use cases, then one journey, customer tenant, Microsoft organization and cost model",
+      "owner": "business owner",
+      "status": "validated",
+      "confidence": "high",
+      "lastChangedAt": "2026-09-10T08:02:40Z",
+      "trace": {
+        "stories": ["copilot-eai-100-use-cases.md", "pilot-journey-pending"],
+        "requirements": ["FR-001", "FR-006", "FR-008", "FR-014", "FR-016", "FR-017", "FR-031", "FR-032", "FR-033", "FR-034"],
+        "tasks": ["tasks.md"],
+        "code": ["src/lib/cases", "src/app/v4", "appPackage"],
+        "tests": ["npm run verify", "npm run test:contract", "npm run test:e2e", "npm run m365:validate"]
+      }
+    }
+  ],
+  "deliveryStates": [
+    {
+      "capability": "Microsoft 365 Copilot agent channel",
+      "currentState": "public starter and development organization proof complete",
+      "targetState": "customer pilot after organization approval",
+      "owner": "product and platform",
+      "promotionCriteria": ["identity approved", "tool allowlist approved", "tenant isolation proven", "customer admin approval", "cost observable"],
+      "blockedBy": ["customer organization approval and pilot selection"]
+    }
+  ],
+  "assumptionDrift": [
+    {
+      "assumptionId": "A1",
+      "owner": "business owner",
+      "expiresAt": "2026-10-02T00:00:00Z",
+      "revalidateTrigger": "Microsoft licensing or Copilot extensibility terms change",
+      "reopenStage": "1_gofer_research"
+    }
+  ],
+  "reloopTriggers": [
+    {
+      "id": "R1",
+      "label": "Business objective or pilot journey changes",
+      "watch": ["goal-ledger.json", "assumptions.md"],
+      "baselineArtifact": "research.md",
+      "reopenStage": "1_gofer_research"
+    },
+    {
+      "id": "R2",
+      "label": "Identity, API, or data boundary changes",
+      "watch": ["spec.md", "contract-pack.md"],
+      "baselineArtifact": "plan.md",
+      "reopenStage": "3_gofer_plan"
+    }
+  ]
+}

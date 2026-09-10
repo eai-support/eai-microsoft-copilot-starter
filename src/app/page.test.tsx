@@ -23,7 +23,7 @@ jest.mock('next/navigation', () => ({
 }));
 
 jest.mock('./home-client', () => ({
-  HomeClient: () => <div data-testid="home-client">home</div>,
+  HomeClient: () => <div data-testid='home-client'>home</div>,
 }));
 
 jest.mock('@/lib/platform/session-resolve', () => ({
@@ -31,7 +31,11 @@ jest.mock('@/lib/platform/session-resolve', () => ({
     statusCode: number;
     responseBody: unknown;
 
-    constructor(message: string, statusCode: number, responseBody: unknown = null) {
+    constructor(
+      message: string,
+      statusCode: number,
+      responseBody: unknown = null,
+    ) {
       super(message);
       this.name = 'RoutingResolutionError';
       this.statusCode = statusCode;
@@ -44,6 +48,7 @@ jest.mock('@/lib/platform/session-resolve', () => ({
 
 describe('Home routing bootstrap', () => {
   beforeEach(() => {
+    delete process.env.EAI_STARTER_DATA_MODE;
     process.env.BASE_URL_PUBLIC_API = 'https://api.test.example.com';
     process.env.EAI_PRODUCT_SLUG = 'eai-app-template';
     process.env.EAI_TENANT_ID = 'tenant-eu';
@@ -57,13 +62,25 @@ describe('Home routing bootstrap', () => {
     jest.clearAllMocks();
   });
 
+  it('does not contact live identity routing in synthetic mode', async () => {
+    process.env.EAI_STARTER_DATA_MODE = 'synthetic';
+
+    render(await Home());
+
+    expect(screen.getByTestId('home-client')).toBeInTheDocument();
+    expect(getAccessToken).not.toHaveBeenCalled();
+    expect(resolvePublicApiBaseUrl).not.toHaveBeenCalled();
+  });
+
   it('redirects to the resolved app host when routing requires correction', async () => {
     (getAccessToken as jest.Mock).mockResolvedValue('user-token');
     (resolvePublicApiBaseUrl as jest.Mock).mockResolvedValue({
       baseUrl: 'https://api.eu.example.com',
       routing: { routingMode: 'redirect', status: 'resolved' },
     });
-    (getRoutingRedirectUrl as jest.Mock).mockReturnValue('https://app.eu.example.com');
+    (getRoutingRedirectUrl as jest.Mock).mockReturnValue(
+      'https://app.eu.example.com',
+    );
 
     await Home();
 
@@ -72,7 +89,7 @@ describe('Home routing bootstrap', () => {
         accessToken: 'user-token',
         currentAppHost: 'app.au.example.com',
         fallbackBaseUrl: 'https://api.test.example.com',
-        product: 'eai-app-template',
+        product: 'eai-microsoft-copilot-starter',
       }),
     );
     expect(redirect).toHaveBeenCalledWith('https://app.eu.example.com');

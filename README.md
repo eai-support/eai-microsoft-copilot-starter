@@ -1,286 +1,115 @@
-# EAI App Template
+# EAI Microsoft Teams And Copilot Starter
 
-A production-ready Next.js template for building tenant-scoped applications on the Enterprise AI platform.
+A working reference application that puts governed EAI customer cases inside an EAI web app and a Microsoft 365 declarative agent.
 
-**[Documentation](https://eai-support.github.io/eai-app-docs/)** | **[Package Registry](https://enterpriseaigroup.github.io/enterpriseai-packages/)** | **[Mirror Repo](https://github.com/eai-support/eai-app-template)**
+The value is not another chatbot. EAI remains responsible for external identity, tenant membership, authorization and operational data. Microsoft Teams and Copilot become approved channels over that governed platform.
 
-## What This Template Assumes
+## What Works
 
-- App developers work through the `eai` CLI, not direct platform credentials.
-- The `eai` CLI release manifest pins this repository's latest `main` commit
-  when the CLI is released; this template does not need a separate template
-  release tag.
-- Object types declare a logical storage backend such as `postgresql`, `documentdb`, `blob`, or `search`.
-- Tenant connections resolve the physical store for that tenant at runtime.
-- PublicAPI and ResourceAPI enforce tenant access. Frontends do not receive raw Blob, DocumentDB, PostgreSQL, or AI Search credentials.
+- A responsive Customer Case Assistant with list, create and version-aware update journeys.
+- A synthetic PublicAPI-compatible API containing fake records only.
+- Strict V4 mutations: `POST { data, idempotencyKey? }` and `PUT { data, version }`.
+- Tenant denial, stale-version and invalid-body evidence.
+- An installable Microsoft package with four allowlisted OAuth operations.
+- Copilot confirmation prompts for create and update.
+- EAI `CustomerCase` object type for a dedicated live harness.
+- Automated contract, package, unit, build and Playwright validation.
 
-## Quick Start
+## Safe Quick Start
 
 ```bash
-git clone https://github.com/eai-support/eai-app-template.git my-app
-cd my-app
-npm install
+git clone https://github.com/eai-support/eai-microsoft-copilot-starter.git
+cd eai-microsoft-copilot-starter
+npm ci
 cp .env.example .env.local
-./run.sh dev 3001
+./run.sh dev 3107
 ```
 
-On Windows, use:
+On Windows:
 
-```bat
-run.bat dev 3001
+```powershell
+Copy-Item .env.example .env.local
+.\run.ps1 dev 3107
 ```
 
-The runner installs missing dependencies, builds the app, stops any process that
-already listens on the chosen port, and restarts the development server on that
-same port. AI agents should use this runner instead of calling `npm run dev`
-directly.
+Open `http://localhost:3107`. The default is synthetic safe mode and cannot access a customer tenant.
 
-Then connect the project to a real tenant:
+## Validate
 
 ```bash
-npm config set @enterpriseai:registry https://eai-support.github.io/eai/registry/ --location=user
-npm install -g @enterpriseai/cli
-eai update --check
-eai login
-eai tenant list --format json
-eai tenant select <tenant-slug>
-eai whoami
-eai app provision <app-key> --tenant-id <tenant-id> --format json
-eai types validate
-eai types diff --tenant-key template --tenant-id <tenant-id>
-eai types seed --tenant-key template --tenant-id <tenant-id> --format json
-eai resources schema --tenant-id <tenant-id> --format json
+npm run verify
+npm run test:smoke
+npm run test:contract
+npm run m365:validate
+npm run test:business-scenarios
+npm run test:e2e
+npm run test:playwright
+npm run build
 ```
 
-Review the pre-seed `types diff`, then seed the intended definitions. Re-run
-`types diff` after seeding when you need convergence evidence; any remaining
-drift must be understood before continuing.
+For a live development organization, provision the EAI External ID registration, add Microsoft’s Copilot OAuth redirect URI, and run `npm run m365:configure:dev` before `atk provision --env dev`. Concrete tenant, client and secret values remain in ignored local files.
 
-## Runtime Contract
+`m365:validate` builds the application package, runs Microsoft 365 Agents Toolkit validation and inspects the resulting ZIP for unresolved settings, secrets and unexpected files.
 
-This template declares its deploy-time requirements in `eai.runtime.json`. The
-contract is provider-neutral: Vercel, Docker, Azure, AWS, Kubernetes, a VM, or
-an internal demo host can all translate the same requirements into their own
-environment and secret mechanism.
+A screenshot is only visual evidence. The browser journey must also pass and assert the create and version-aware update outcomes.
 
-The default contract requires:
+## AI Agent Handoff
 
-- Auth.js with Microsoft Entra sign-in
-- PublicAPI access through the app BFF at `/api/eai`
-- tenant/workflow runtime configuration through `/api/eai/config`
-- `/health` for host-level liveness
-- user-delegated access for tenant data-plane calls
+Start with `eai start --check`, then run `eai start` before implementation. Give the provider the business outcome and business specification, and ask the provider to read the project before changing it. Treat each agent chat in this repository as if the public `eai` entrypoint is active, including the diagnose, repair and revalidation loop.
 
-Validate the local contract and a deployed app with:
+Use `./run.sh dev 3107` on macOS or Linux and `run.ps1 dev 3107` on Windows instead of calling `npm run dev` directly. The runner performs the repository preflight before opening the application.
 
-```bash
-eai runtime validate
-eai deploy env --provider generic
-eai deploy doctor --url https://your-deployed-app.example.com
-```
-
-`/health` returning 200 is only the first check. A deployment is not considered
-healthy until Auth.js, runtime config, tenant/workflow values, and declared
-smoke tests pass.
-
-The readiness smoke test remains authenticated. The deploy-doctor process and
-the deployed runtime must receive matching values for
-`EAI_READINESS_PROBE_TOKEN`, `NEXT_PUBLIC_EAI_TENANT_ID`, `EAI_PRODUCT_SLUG`,
-`EAI_ENVIRONMENT`, and `EAI_CONFIG_HASH`. Inject the probe token through the
-operator or CI secret environment; do not put it on the command line or commit
-it. The CLI resolves the contract's `${ENV_NAME}` header values only in memory,
-sends them to the declared endpoint, and does not include them in output. If a
-required value is absent, doctor does not send an unauthenticated request and
-reports missing probe configuration instead of PublicAPI authorization failure.
-
-## Tenant Data Access
-
-Tenant app data access is user-delegated. Browser code calls the app BFF at
-`/api/eai/...`, and the BFF forwards to PublicAPI with the signed-in user's
-session token. PublicAPI, OPA/Authz, and ResourceAPI then evaluate the user,
-app, and tenant together.
-
-Do not add app-only `client_credentials` access for normal ResourceAPI reads,
-writes, files, or search. If work must continue after the user leaves the page,
-have the user request a platform workflow/job and pass tenant, app, and user
-context into that workflow.
-
-These credentials and identities have different purposes:
-
-- Auth.js uses the app registration's confidential-client secret to complete
-  interactive sign-in and establish the user's server-side session.
-- The BFF uses the signed-in user's delegated token for tenant-scoped PublicAPI
-  calls; PublicAPI evaluates the user, app client, and tenant together.
-- An app-only/service identity is optional and separate. Generic tenant apps do
-  not need one for normal data-plane access, and `eai app provision` must not
-  create one merely to repair an interactive login.
-
-## AI Agent Workflow
-
-Projects created with `eai init` include current Gofer assets for GitHub
-Copilot, Claude, Codex, Grok Build, and Gemini-compatible AI workspaces. Detect
-and open an installed workspace with:
-
-```bash
-eai start --check
-eai start
-```
-
-Detection reads installed application and command metadata only. The final
-start action is the user's approval for the selected provider to read the
-project and use the provider account. The first conversation starts with the
-business outcome, uses the public `eai` skill, and pauses for approval of the
-business specification before implementation continues.
-
-After Gofer is installed or refreshed, treat each agent chat in this repository
-as if the public `eai` entrypoint is active, even when the user omits `/eai`,
-`$eai`, or `#eai`. Do not inject a slash command into the chat box. Route the
-request through the same Gofer decision path and keep replies short, direct,
-and business-focused.
-
-For any local UI preview, use the repo runner:
-
-```bash
-./run.sh dev 3001
-```
-
-On Windows, use:
-
-```bat
-run.bat dev 3001
-```
-
-Do not start the UI with direct `npm run dev` commands unless the runner is
-missing. If the runner is missing, refresh the EAI app template before preview
-work continues.
-
-When an AI agent is working in this template, it should use the EAI CLI as the source of truth instead of guessing command shapes:
-
-```bash
-eai --describe
-eai agent guide --format json
-```
-
-If an `eai` command fails, the agent should explain the known error before choosing recovery steps:
-
-```bash
-eai errors explain <code-or-reason> --format json
-```
-
-Use `eai update --check` or `eai doctor --check-updates` when a command is missing, help looks stale, or the local CLI may be behind the published release. Direct PublicAPI calls through `eai publicapi` should use only `/v4/...` paths.
-
-Use the app-owned test scripts before inventing commands:
-
-| Script | Purpose |
-| ------ | ------- |
-| `npm run verify` | Local template health: object types, route exports, config, typecheck, and unit tests. |
-| `npm run test:smoke` | Fast local smoke checks for template and AI workspace guidance. |
-| `npm run test:business-scenarios` | Gofer-created browser journeys for business outcomes. |
-| `npm run test:e2e` | Browser end-to-end tests for app journeys. |
-| `npm run test:playwright` | Full Playwright runner for explicit browser test work. |
-
-Gofer should prefer `test:business-scenarios` for user journeys, then
-`test:e2e`, then `test:playwright`. A screenshot is only visual evidence. It
-does not replace a click-through browser test for app behavior. These browser
-aliases must contain real Playwright tests and must not use empty-suite bypasses.
-
-If platform user lookup or membership prerequisite calls return
-`MISSING_TENANT`, `app_token_tenant_context_required`, or "Tenant context
-required for app tokens", explain that error before changing state:
-
-```bash
-eai errors explain app_token_tenant_context_required --format json
-```
-
-Then confirm the tenant with `eai whoami` and `eai tenant list --format json`
-and use tenant-scoped platform routes such as
-`/v4/platform/tenants/<tenant-id>/users/by-email?email=<email>`,
-`/v4/platform/tenants/<tenant-id>/users/<oid>/memberships`,
-`/v4/platform/tenants/<tenant-id>/members`, and
-`/v4/platform/tenants/<tenant-id>/role-definitions`. Do not start by changing
-tenant members, Entra configuration, role definitions, databases, or cloud
-portals.
-
-## Tenant Data Plane Model
-
-- `postgresql`: canonical structured resource storage for most app data.
-- `documentdb`: tenant-scoped document storage when a resource type genuinely needs a document model.
-- `blob`: file and large object storage behind API-mediated access.
-- `search`: derived search/vector projection only, never the system of record.
-
-For the default scaffold, canonical runtime data remains in structured resource storage and search is a derived index. Prefer that model for new apps unless a resource type clearly needs `blob` or `documentdb`.
-
-For file upload, use the v4 documents workflow when the file should be
-processed, classified, indexed for RAG, or used by AI. Use ResourceAPI file
-properties when the file is an attachment to a typed business resource. Do not
-create standalone browser-visible blob upload paths for new apps. See
-`docs/platform/documents-and-files.md`.
-
-## Common Local Workflow
-
-```bash
-# 1. Edit tenant config and object types
-
-# 2. Validate locally
-eai types validate
-
-# 3. Publish to the selected tenant
-eai types seed --tenant-key template --tenant-id <tenant-id> --format json
-
-# 4. Confirm the remote platform matches local source
-eai types diff --tenant-key template --tenant-id <tenant-id>
-eai resources schema --tenant-id <tenant-id> --format json
-eai verify calls --tenant-id <tenant-id> --resource-type application
-```
-
-## Object Type Naming
-
-- Define object types in PascalCase in `src/eai.config/object-types.ts`.
-- Let the shared SDK normalize those names to kebab-case route slugs.
-- Use `useResources('WatchTarget')`, `client.resources.get('Campaign', id)`,
-  and related helpers instead of hand-writing `/v4/data/resources/...` paths.
-- If you need the slug explicitly, use the shared `toObjectTypeSlug(...)`
-  helper from `@enterpriseaigroup/platform-sdk` instead of creating a local
-  slugifier.
-
-## App Router Guardrail
-
-- In `src/app/**/route.ts`, export only HTTP methods like `GET`, `POST`, `PUT`,
-  `PATCH`, `DELETE`, `HEAD`, and `OPTIONS`
-- Only export supported route config fields such as `dynamic`, `runtime`, and
-  `revalidate`
-- Keep reusable logic in a sibling `handler.ts` or a module under `src/lib/`
-- Run `npm run check:route-exports` to catch unsupported `route.ts` exports
-  before `next build`
-
-## Package Registry
-
-The `@enterpriseaigroup/*` packages are served from a public registry. The included `.npmrc` configures this automatically.
+## Architecture
 
 ```text
-@enterpriseaigroup:registry=https://enterpriseaigroup.github.io/enterpriseai-packages/registry
+Teams / Microsoft 365 Copilot       EAI web application
+               |                           |
+               | OAuth API plugin          | Auth.js BFF
+               +-------------+-------------+
+                             |
+                       PublicAPI V4
+                             |
+                     Authz + ResourceAPI
 ```
 
-## Tech Stack
+The Microsoft agent calls PublicAPI directly with an EAI-audience delegated token. It does not call ResourceAPI, databases or Azure services directly. The browser uses the app-template BFF so tokens remain server-side.
 
-- **Framework**: Next.js 15+ with App Router
-- **Language**: TypeScript (strict mode)
-- **UI**: React 18+, Tailwind CSS, Shadcn/ui
-- **State**: Zustand (via `@enterpriseaigroup/core`)
-- **Auth**: Auth.js with Microsoft Entra ID
-- **API**: BFF proxy to PublicAPI and downstream platform services
+## Microsoft Package
+
+The package under `appPackage/` follows the current Microsoft 365 Agents Toolkit format and exposes only:
+
+| Operation     | PublicAPI V4 contract                                |
+| ------------- | ---------------------------------------------------- |
+| `listMyCases` | `GET /v4/data/resources/{tenant}/customer-case`      |
+| `getCase`     | `GET /v4/data/resources/{tenant}/customer-case/{id}` |
+| `createCase`  | `POST` with `{ data, idempotencyKey? }`              |
+| `updateCase`  | `PUT` with `{ data, version }`                       |
+
+See [Microsoft setup](docs/microsoft-setup.md) for OAuth, development-organization provisioning and catalog publication.
+
+## Evidence Boundaries
+
+- Synthetic green proves the public sample and strict contract behavior.
+- Package green proves Microsoft schema and packaging validity.
+- EAI live requires a dedicated development harness and authenticated PublicAPI evidence.
+- Microsoft live requires an entitled Microsoft development organization and interactive consent.
+
+These are reported separately. A package build or local mock is not a live deployment.
 
 ## Documentation
 
-Full documentation is available at **https://eai-support.github.io/eai-app-docs/**, covering:
+- [Architecture and security](docs/architecture.md)
+- [Microsoft Teams and Copilot setup](docs/microsoft-setup.md)
+- [Five-minute demonstration](docs/demo-script.md)
+- [Template provenance](TEMPLATE_PROVENANCE.md)
 
-- Getting started and onboarding
-- CLI usage and tenant workflows
-- Architecture and tenant data-plane patterns
-- Platform service usage patterns for resources, storage, documents, search, and chat
-- Config-driven UI composition with store bindings and component registries
-- App configuration and extension points
+## Official Microsoft References
 
-## License
+- [Microsoft 365 Agents Toolkit CLI](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli)
+- [Plugins for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins)
+- [API plugin authentication](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/api-plugin-authentication)
+- [Confirmation prompts](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/plugin-confirmation-prompts)
 
-Proprietary - Enterprise AI Group
+## Licence And Identity Boundary
+
+EAI External ID can securely include customers and partners who are outside a customer's workforce Entra tenant. It does not grant a Microsoft 365 Copilot licence. Microsoft licensing and EAI membership remain separate controls.

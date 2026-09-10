@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "EAI Customer Case Assistant${{APP_NAME_SUFFIX}}",
+  "description": "Securely find and update customer cases held in the EAI Platform.",
+  "instructions": "$[file('instructions.txt')]",
+  "conversation_starters": [
+    { "text": "Show my current customer cases" },
+    { "text": "Open case CASE-1042" },
+    { "text": "Create a medium-priority case for a new customer request" }
+  ],
+  "actions": [
+    {
+      "id": "eaiCasesPlugin",
+      "file": "ai-plugin.json"
+    }
+  ]
+}
