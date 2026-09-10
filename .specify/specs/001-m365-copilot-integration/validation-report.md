@@ -30,4 +30,6 @@ The official Microsoft Agents Toolkit is development-only but currently brings 2
 
 No production or customer deployment was requested. The pull request must remain unmerged.
 
+GitHub PR #1 is open for review. Final CI evidence is recorded after the exact PR head completes.
+
 Template drift reports 36 review files and 12 UI files because this repository intentionally specializes the source template. The only upstream add is legacy `middleware.ts`; Next.js 16 uses the delivered `proxy.ts` instead.
