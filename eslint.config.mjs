@@ -1,35 +1,44 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
+import { defineConfig, globalIgnores } from 'eslint/config';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTs from 'eslint-config-next/typescript';
+import prettier from 'eslint-config-prettier/flat';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends('next/core-web-vitals', 'next/typescript', 'prettier'),
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  prettier,
   {
-    ignores: [
-      'node_modules/**',
-      'dist/**',
-      'build/**',
-      'coverage/**',
-      '.next/**',
-      'out/**',
-      'storybook-static/**',
-      'playwright-report/**',
-      'test-results/**',
-      '*.log',
+    files: [
+      'packages/platform-sdk/__tests__/chat.test.ts',
+      'scripts/**/*.cjs',
+      'tests/**/*.cjs',
     ],
-  },
-  {
     rules: {
-      'react-hooks/exhaustive-deps': 'warn',
+      '@typescript-eslint/no-namespace': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
-];
+  globalIgnores([
+    'node_modules/**',
+    'dist/**',
+    'build/**',
+    'coverage/**',
+    '.next/**',
+    'out/**',
+    'storybook-static/**',
+    'playwright-report/**',
+    'test-results/**',
+    '.agents/**',
+    '.claude/**',
+    '.gemini/**',
+    '.grok/**',
+    '.specify/**',
+    '.system/**',
+    '.github/instructions/**',
+    '.github/prompts/**',
+    '.github/skills/**',
+    '*.log',
+  ]),
+]);
 
 export default eslintConfig;

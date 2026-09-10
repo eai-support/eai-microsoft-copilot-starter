@@ -1,9 +1,29 @@
 {
   "schema": "eai.test_coverage_map.v1",
   "repositories": {
-    "eai-app-template": {
+    "eai-microsoft-copilot-starter": {
       "intentional_skipped_tests": [],
       "features": [
+        {
+          "id": "microsoft-copilot-customer-case-contract",
+          "description": "The web app and Microsoft agent share strict PublicAPI V4 list, read, create and version-aware update contracts for tenant-owned customer cases.",
+          "owned_paths": [
+            "appPackage/**",
+            "src/app/home-client.tsx",
+            "src/app/v4/data/resources/**",
+            "src/lib/cases/**",
+            "src/eai.config/object-types.ts"
+          ],
+          "required_repo_tests": [
+            "src/app/v4/data/resources/[tenantId]/customer-case/route.test.ts",
+            "src/app/v4/data/resources/[tenantId]/customer-case/[caseId]/route.test.ts",
+            "tests/copilot-contract/microsoft-package.test.mjs",
+            "tests/business-scenarios/starter-app.spec.ts"
+          ],
+          "required_ci_checks": ["validate"],
+          "required_cross_service_surfaces": [],
+          "required_deployed_contracts": []
+        },
         {
           "id": "canonical-object-type-routing",
           "description": "The template validates exact Object Type name/slug pairs and routes every SDK resource identifier through the canonical v1 slug owner.",

@@ -19,12 +19,12 @@ export const revalidate = 0;
 import type { RuntimeConfig } from '@enterpriseaigroup/core';
 
 /**
- * Reads tenant keys from TENANT_KEYS env var (comma-separated, e.g. "template,other").
- * Falls back to 'template' when not set.
+ * Reads tenant keys from TENANT_KEYS env var.
+ * Falls back to this starter's stable app key when not set.
  */
 function getTenantKeys(): string[] {
   const raw = process.env.TENANT_KEYS;
-  if (!raw) return ['template'];
+  if (!raw) return ['eai-microsoft-copilot-starter'];
   return raw.split(',').map((k) => k.trim()).filter(Boolean);
 }
 

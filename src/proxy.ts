@@ -1,10 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { auth } from '@/auth';
 
-// API routes that require authentication
 const PROTECTED_API_ROUTES = ['/api/eai/v4/identity/'];
-
-// Routes that should bypass auth check
 const PUBLIC_ROUTES = [
   '/api/auth',
   '/api/eai/config',
@@ -12,15 +9,13 @@ const PUBLIC_ROUTES = [
   '/_next',
 ];
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Skip public routes
   if (PUBLIC_ROUTES.some((route) => pathname.startsWith(route))) {
     return NextResponse.next();
   }
 
-  // Protect API routes
   if (PROTECTED_API_ROUTES.some((route) => pathname.startsWith(route))) {
     const session = await auth();
     if (!session?.user) {

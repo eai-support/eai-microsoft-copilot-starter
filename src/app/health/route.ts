@@ -6,7 +6,8 @@ export async function GET(): Promise<Response> {
   return Response.json(
     {
       ok: true,
-      service: process.env.NEXT_PUBLIC_APP_NAME || 'eai-app-template',
+      service:
+        process.env.NEXT_PUBLIC_APP_NAME || 'eai-microsoft-copilot-starter',
     },
     {
       headers: {

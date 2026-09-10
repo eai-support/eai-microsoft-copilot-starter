@@ -79,8 +79,8 @@ const RAW_SECRET_VALUE_PATTERNS = [
 
 export const templateDeploymentContract: TemplateDeploymentContract = {
   app: {
-    appKey: 'eai-app-template',
-    displayName: 'EAI App Template',
+    appKey: 'eai-microsoft-copilot-starter',
+    displayName: 'EAI Customer Case Assistant',
     sourceMode: 'admin-portal-generated',
     templateVersion: '0.1.0',
     supportedEnvironments: ['dev', 'test', 'prod', 'demo'],

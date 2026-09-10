@@ -1,11 +1,12 @@
 [
   {
-    "tenantKey": "template",
+    "tenantKey": "eai-microsoft-copilot-starter",
     "declaredBackends": [
       "postgresql"
     ],
     "objectTypesByBackend": {
       "postgresql": [
+        "CustomerCase",
         "Application",
         "Document",
         "Notification"
@@ -16,6 +17,10 @@
     },
     "objectTypeIdentifiersByBackend": {
       "postgresql": [
+        {
+          "name": "CustomerCase",
+          "slug": "customer-case"
+        },
         {
           "name": "Application",
           "slug": "application"

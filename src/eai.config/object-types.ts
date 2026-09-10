@@ -149,41 +149,10 @@ export interface ObjectTypeDefinition {
 // Object Type Definitions
 // ---------------------------------------------------------------------------
 
-function tenantStorageScope(tenantId: string): string {
-  const scope =
-    tenantId
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '')
-      .slice(-12) || 'tenant';
-  return /^[a-z]/.test(scope) ? scope : `t${scope}`;
-}
-
-function storageNamePrefix(parts: string[], separator = '_'): string {
-  const replacement = separator === '-' ? '-' : '_';
-  return parts
-    .map((part) =>
-      String(part || '')
-        .toLowerCase()
-        .replace(/-/g, separator),
-    )
-    .join(separator)
-    .replace(/[^a-z0-9_-]+/g, replacement)
-    .replace(/^[_-]+|[_-]+$/g, '');
-}
-
-function appSqlStorage(logicalTableName: string) {
-  const tenantId =
-    process.env.EAI_TENANT_ID ||
-    process.env.NEXT_PUBLIC_EAI_TENANT_ID ||
-    'tenant';
-  const appKey =
-    process.env.EAI_APP_KEY ||
-    process.env.NEXT_PUBLIC_EAI_APP_KEY ||
-    process.env.NEXT_PUBLIC_APP_NAME ||
-    'template';
+function appSqlStorage(logicalTableName = '') {
   const tablePrefix =
     process.env.EAI_STORAGE_TABLE_PREFIX ||
-    `${storageNamePrefix([tenantStorageScope(tenantId), appKey], '_')}_`;
+    'eai_microsoft_copilot_starter_';
 
   return {
     schemaVersion: 1,
@@ -200,7 +169,90 @@ function appSqlStorage(logicalTableName: string) {
 }
 
 export const objectTypes: Record<string, ObjectTypeDefinition[]> = {
-  template: [
+  'eai-microsoft-copilot-starter': [
+    {
+      name: 'CustomerCase',
+      slug: 'customer-case',
+      displayName: 'Customer Case',
+      description:
+        'A tenant-owned customer service case available through approved EAI channels.',
+      authorization: { privacyClass: 'shared_private' },
+      ...appSqlStorage('customer_cases'),
+      properties: [
+        {
+          name: 'caseNumber',
+          type: 'text',
+          required: true,
+          indexed: true,
+          description: 'Human-readable case reference.',
+        },
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+          indexed: true,
+          description: 'Short summary of the customer request.',
+        },
+        {
+          name: 'description',
+          type: 'text',
+          required: true,
+          description: 'Detailed customer request and operating context.',
+        },
+        {
+          name: 'status',
+          type: 'select',
+          required: true,
+          indexed: true,
+          defaultValue: 'new',
+          options: [
+            { label: 'New', value: 'new' },
+            { label: 'In progress', value: 'in_progress' },
+            { label: 'Waiting on customer', value: 'waiting_on_customer' },
+            { label: 'Resolved', value: 'resolved' },
+          ],
+          description: 'Current service state.',
+        },
+        {
+          name: 'priority',
+          type: 'select',
+          required: true,
+          indexed: true,
+          defaultValue: 'medium',
+          options: [
+            { label: 'Low', value: 'low' },
+            { label: 'Medium', value: 'medium' },
+            { label: 'High', value: 'high' },
+            { label: 'Urgent', value: 'urgent' },
+          ],
+          description: 'Business handling priority.',
+        },
+        {
+          name: 'customerName',
+          type: 'text',
+          required: true,
+          indexed: true,
+          description: 'Customer or external organization name.',
+        },
+        {
+          name: 'ownerName',
+          type: 'text',
+          required: true,
+          indexed: true,
+          description: 'Current case owner display name.',
+        },
+        {
+          name: 'updatedAt',
+          type: 'date',
+          required: true,
+          indexed: true,
+          description: 'Last business update timestamp.',
+        },
+      ],
+      linkTypes: [],
+      actions: [],
+      status: 'published',
+    },
     {
       name: 'Application',
       slug: 'application',

@@ -13,6 +13,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+  expect: { timeout: 15_000 },
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -79,13 +80,17 @@ export default defineConfig({
     env: {
       APP_BASE_PATH: '',
       NEXT_PUBLIC_APP_BASE_PATH: '',
-      NEXT_PUBLIC_APP_NAME: 'eai-app-template',
-      NEXT_PUBLIC_EAI_TENANT_ID: 'template-tenant',
-      EAI_PRODUCT_SLUG: 'eai-app-template',
-      EAI_TENANT_ID: 'template-tenant',
-      TENANT_KEYS: 'template',
-      TENANT_TEMPLATE_ID: 'template-tenant',
-      WORKFLOW_TEMPLATE_ID: 'template-workflow',
+      NEXT_PUBLIC_APP_NAME: 'eai-microsoft-copilot-starter',
+      NEXT_PUBLIC_EAI_TENANT_ID: 'demo',
+      NEXT_PUBLIC_EAI_STARTER_DATA_MODE: 'synthetic',
+      NEXT_PUBLIC_EAI_STARTER_SYNTHETIC_TENANT_ID: 'demo',
+      EAI_STARTER_DATA_MODE: 'synthetic',
+      EAI_STARTER_SYNTHETIC_TENANT_ID: 'demo',
+      EAI_PRODUCT_SLUG: 'eai-microsoft-copilot-starter',
+      EAI_TENANT_ID: 'demo',
+      TENANT_KEYS: 'eai-microsoft-copilot-starter',
+      TENANT_EAI_MICROSOFT_COPILOT_STARTER_ID: 'demo',
+      WORKFLOW_EAI_MICROSOFT_COPILOT_STARTER_ID: 'template-workflow',
       ROUTING_BOOTSTRAP_PUBLIC_API_URL: 'http://127.0.0.1:3107',
       BASE_URL_PUBLIC_API: 'http://127.0.0.1:3107',
       AUTH_SECRET: 'template-local-playwright-secret',

@@ -32,8 +32,8 @@ const templateConfigSource = {
   // METADATA
   // ==========================================================================
   meta: {
-    title: 'Demo Template',
-    description: 'A config-driven app built with Enterprise AI',
+    title: 'EAI Customer Case Assistant',
+    description: 'A governed case workspace for web, Teams and Copilot',
   },
 
   // ==========================================================================
@@ -64,10 +64,10 @@ const templateConfigSource = {
   // STORAGE
   // ==========================================================================
   storage: {
-    prefix: 'demo',
+    prefix: 'eai-cases',
     persistenceStrategy: 'sessionStorage',
-    globalStoreKey: 'demo-global-store',
-    selectedTenantKey: 'demo-selected-tenant',
+    globalStoreKey: 'eai-cases-global-store',
+    selectedTenantKey: 'eai-cases-selected-tenant',
   },
 
   // ==========================================================================

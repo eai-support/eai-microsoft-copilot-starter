@@ -1,0 +1,211 @@
+openapi: 3.0.3
+info:
+  title: EAI Customer Case API
+  description: Strict PublicAPI V4 operations for tenant-owned customer cases.
+  version: 1.0.0
+servers:
+  - url: ${{EAI_PUBLIC_API_URL}}
+    description: Regional EAI PublicAPI
+security:
+  - eaiExternalId: ['${{EAI_OAUTH_SCOPE}}']
+paths:
+  /v4/data/resources/${{EAI_TENANT_ID}}/customer-case:
+    get:
+      operationId: listMyCases
+      summary: List permitted customer cases
+      description: Lists customer cases visible to the signed-in user in the configured tenant.
+      x-openai-isConsequential: false
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of cases to return, from 1 to 50.
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 20
+      responses:
+        '200':
+          description: A bounded list of permitted customer cases.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaseListResponse'
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+    post:
+      operationId: createCase
+      summary: Create a customer case
+      description: Creates one customer case using the strict PublicAPI V4 data envelope.
+      x-openai-isConsequential: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCaseRequest'
+      responses:
+        '201':
+          description: Case created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaseMutationReceipt'
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '422': { $ref: '#/components/responses/InvalidMutation' }
+  /v4/data/resources/${{EAI_TENANT_ID}}/customer-case/{caseId}:
+    get:
+      operationId: getCase
+      summary: Get a customer case
+      description: Returns one permitted case and its current optimistic-lock version.
+      x-openai-isConsequential: false
+      parameters:
+        - $ref: '#/components/parameters/CaseId'
+      responses:
+        '200':
+          description: Current customer case.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerCaseRecord'
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    put:
+      operationId: updateCase
+      summary: Update a customer case
+      description: Replaces case data using the latest version. PublicAPI V4 does not accept PATCH or a flat body.
+      x-openai-isConsequential: true
+      parameters:
+        - $ref: '#/components/parameters/CaseId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCaseRequest'
+      responses:
+        '200':
+          description: Case updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaseMutationReceipt'
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409':
+          description: The supplied version is stale; read the record and reconfirm before retrying.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422': { $ref: '#/components/responses/InvalidMutation' }
+components:
+  securitySchemes:
+    eaiExternalId:
+      type: oauth2
+      description: EAI External ID delegated authorization for the configured tenant app.
+      flows:
+        authorizationCode:
+          authorizationUrl: ${{EAI_AUTHORIZATION_URL}}
+          tokenUrl: ${{EAI_TOKEN_URL}}
+          scopes:
+            ${{EAI_OAUTH_SCOPE}}: Access EAI PublicAPI as the signed-in user.
+  parameters:
+    CaseId:
+      name: caseId
+      in: path
+      required: true
+      description: EAI resource identifier for the customer case.
+      schema:
+        type: string
+        minLength: 1
+  schemas:
+    CustomerCaseData:
+      type: object
+      additionalProperties: false
+      required:
+        [
+          caseNumber,
+          title,
+          description,
+          status,
+          priority,
+          customerName,
+          ownerName,
+          updatedAt,
+        ]
+      properties:
+        caseNumber: { type: string }
+        title: { type: string }
+        description: { type: string }
+        status:
+          type: string
+          enum: [new, in_progress, waiting_on_customer, resolved]
+        priority:
+          type: string
+          enum: [low, medium, high, urgent]
+        customerName: { type: string }
+        ownerName: { type: string }
+        updatedAt: { type: string, format: date-time }
+    CustomerCaseRecord:
+      type: object
+      additionalProperties: false
+      required: [id, version, data]
+      properties:
+        id: { type: string }
+        version: { type: integer, minimum: 1 }
+        data: { $ref: '#/components/schemas/CustomerCaseData' }
+    CaseListResponse:
+      type: object
+      required: [docs, total]
+      properties:
+        docs:
+          type: array
+          items: { $ref: '#/components/schemas/CustomerCaseRecord' }
+        total: { type: integer, minimum: 0 }
+    CreateCaseRequest:
+      type: object
+      additionalProperties: false
+      required: [data]
+      properties:
+        data: { $ref: '#/components/schemas/CustomerCaseData' }
+        idempotencyKey: { type: string, minLength: 1, maxLength: 128 }
+    UpdateCaseRequest:
+      type: object
+      additionalProperties: false
+      required: [data, version]
+      properties:
+        data: { $ref: '#/components/schemas/CustomerCaseData' }
+        version: { type: integer, minimum: 1 }
+    CaseMutationReceipt:
+      type: object
+      required: [operation, record]
+      properties:
+        operation: { type: string, enum: [created, updated] }
+        record: { $ref: '#/components/schemas/CustomerCaseRecord' }
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code: { type: string }
+            message: { type: string }
+            remediation: { type: string }
+            currentVersion: { type: integer }
+  responses:
+    Unauthorized:
+      description: Sign-in is required or the delegated token is invalid.
+    Forbidden:
+      description: The signed-in user is not permitted to access this tenant or case.
+    NotFound:
+      description: The customer case was not found.
+    InvalidMutation:
+      description: The request did not use the strict PublicAPI V4 mutation contract.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorResponse' }

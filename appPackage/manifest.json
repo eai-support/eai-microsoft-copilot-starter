@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.30/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.30",
+  "id": "${{TEAMS_APP_ID}}",
+  "version": "1.0.0",
+  "developer": {
+    "name": "Enterprise AI Group",
+    "websiteUrl": "https://enterpriseai.group",
+    "privacyUrl": "https://enterpriseai.group/privacy",
+    "termsOfUseUrl": "https://enterpriseai.group/terms"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "EAI Cases${{APP_NAME_SUFFIX}}",
+    "full": "EAI Customer Case Assistant${{APP_NAME_SUFFIX}}"
+  },
+  "description": {
+    "short": "Work with governed EAI customer cases from Teams and Copilot.",
+    "full": "A reference agent that lets authorized users list, read, create and update tenant-owned customer cases through Enterprise AI PublicAPI V4."
+  },
+  "accentColor": "#174F43",
+  "supportsChannelFeatures": "tier1",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "eaiCaseAssistant",
+        "file": "eaiCaseAssistant.json"
+      }
+    ]
+  },
+  "permissions": ["identity"]
+}

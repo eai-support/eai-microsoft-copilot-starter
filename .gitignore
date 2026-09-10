@@ -28,6 +28,13 @@
 # environment variables
 .env*
 !.env.example
+!/env/.env.dev.example
+!/env/package.env
+
+# Microsoft Agents Toolkit generated state and packages
+/env/*.user
+/appPackage/build/
+/.eai/storage-bindings.json
 
 # npm secret overrides (use .npmrc.local for tokens)
 # .npmrc itself is committed — it contains only the registry URL, no secrets
@@ -73,3 +80,14 @@ node_modules/
 # Log files
 *.log
 mcp_sharepoint.log
+
+# Gofer runtime files (auto-generated, should not be committed)
+.specify/hooks/
+.specify/memory/local.json
+.specify/memory/dependency-graph.json
+.specify/specs/*/.branch-info.json
+.specify/logs/
+.specify/memory/checkpoints/
+.specify/memory/context-health-state.json
+.specify/memory/observation-cache/
+.specify/specs/*/research-index.json

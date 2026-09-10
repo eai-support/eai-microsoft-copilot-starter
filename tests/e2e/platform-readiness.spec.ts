@@ -14,7 +14,7 @@ test('platform readiness gives structured guidance when auth is not configured',
   const body = await response.json();
   expect(body).toMatchObject({
     ok: false,
-    service: 'eai-app-template',
+    service: 'eai-microsoft-copilot-starter',
   });
   expect(body.failureCategories).toContain('auth_misconfigured');
   expect(body.checks[0]).toMatchObject({
