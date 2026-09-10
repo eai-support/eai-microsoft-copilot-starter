@@ -49,8 +49,8 @@ jobs:
       - name: PublicAPI and Copilot contract tests
         run: npm run test:contract
 
-      - name: Validate Microsoft package
-        run: npm run m365:validate
+      - name: Validate Microsoft package deterministically
+        run: npm run m365:validate:ci
 
       - name: Source-unknown handoff evidence test
         run: npm run test:source-unknown-evidence

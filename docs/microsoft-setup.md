@@ -22,6 +22,8 @@ npm run test:business-scenarios
 
 The package gate uses `env/package.env`, which contains non-secret validation placeholders only.
 
+Pull request CI runs `npm run m365:validate:ci` so an unavailable Microsoft validation service cannot stall every code check. Run `npm run m365:validate` before publication; it adds Microsoft's external validation rules to the same deterministic package inspection.
+
 ## 2. Provision The EAI Harness
 
 ```bash

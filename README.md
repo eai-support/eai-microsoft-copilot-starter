@@ -51,6 +51,8 @@ For a live development organization, provision the EAI External ID registration,
 
 `m365:validate` builds the application package, runs Microsoft 365 Agents Toolkit validation and inspects the resulting ZIP for unresolved settings, secrets and unexpected files.
 
+Pull request CI uses `m365:validate:ci` for deterministic package and contract checks. Run `m365:validate` before release to include Microsoft's external validation service.
+
 A screenshot is only visual evidence. The browser journey must also pass and assert the create and version-aware update outcomes.
 
 ## AI Agent Handoff

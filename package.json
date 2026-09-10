@@ -48,6 +48,7 @@
     "test:contract": "jest --ci --bail 'src/app/v4/data/resources/\\[tenantId\\]/customer-case' && node --test tests/copilot-contract/*.test.mjs",
     "m365:package": "atk package --env-file env/package.env --output-package-file appPackage/build/appPackage.validation.zip --telemetry false",
     "m365:configure:dev": "node scripts/configure-m365-dev.mjs",
+    "m365:validate:ci": "npm run m365:package && node scripts/validate-m365-package.mjs",
     "m365:validate": "npm run m365:package && atk validate --package-file appPackage/build/appPackage.validation.zip --telemetry false && node scripts/validate-m365-package.mjs",
     "test:unit": "jest --watchAll --passWithNoTests",
     "test:unit:ci": "jest --ci --bail --passWithNoTests",
