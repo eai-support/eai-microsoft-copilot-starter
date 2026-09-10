@@ -1,6 +1,6 @@
 ---
 feature: 001-m365-copilot-integration
-audited: 2026-09-10T22:56:09.956Z
+audited: 2026-09-10T23:14:49.287Z
 status: healthy
 recommended_start_stage: none
 ---
