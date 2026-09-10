@@ -1,0 +1,44 @@
+[
+  {
+    "tenantKey": "template",
+    "declaredBackends": [
+      "postgresql"
+    ],
+    "objectTypesByBackend": {
+      "postgresql": [
+        "Application",
+        "Document",
+        "Notification"
+      ],
+      "documentdb": [],
+      "blob": [],
+      "search": []
+    },
+    "objectTypeIdentifiersByBackend": {
+      "postgresql": [
+        {
+          "name": "Application",
+          "slug": "application"
+        },
+        {
+          "name": "Document",
+          "slug": "document"
+        },
+        {
+          "name": "Notification",
+          "slug": "notification"
+        }
+      ],
+      "documentdb": [],
+      "blob": [],
+      "search": []
+    },
+    "provision": {
+      "postgresql": true,
+      "documentdb": false,
+      "blob": false,
+      "search": false
+    },
+    "notes": []
+  }
+]
